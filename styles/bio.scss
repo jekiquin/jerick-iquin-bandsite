@@ -8,3 +8,8 @@
 // layout and components
 @use "./partials/3-components/nav";
 @use "./partials/3-components/hero";
+
+img {
+    object-fit: cover;
+    width: 100%;
+}

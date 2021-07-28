@@ -11,3 +11,9 @@ footer {
     @include set-color-theme($primary-dark-bg);
     padding: $default-gutter;
 }
+
+main {
+    section {
+        padding: $default-gutter;
+    }
+}

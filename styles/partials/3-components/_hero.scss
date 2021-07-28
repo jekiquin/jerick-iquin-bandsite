@@ -4,11 +4,10 @@
     @include set-background("../assets/images/hero-bio.jpg");
     width: 100%;
     height: 50vw;
+    color: $font-color-dark-bg;
     position: relative;
     z-index: 1;
-    color: $font-color-dark-bg;
-
-
+    
     &__mask{
         @extend %cover;
         position: absolute;
