@@ -1,9 +1,9 @@
 @use "./variables" as *;
 
 @function set-font-color($background-color) {
-    @if (lightness($background-color) > 70) {
-        @return $primary-color-light-bg;
+    @if (lightness($background-color) > 50) {
+        @return $font-color-light-bg;
     } @else {
-        @return $primary-color-dark-bg;
+        @return $font-color-dark-bg;
     }
 }
