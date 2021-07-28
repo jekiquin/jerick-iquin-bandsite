@@ -44,7 +44,8 @@ address {
 
 p {
     @extend address;
-    @include set-pad("top");
+    // @include set-pad("top");
+    padding-top: map-get($pad, "default");
 }
 
 cite {

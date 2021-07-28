@@ -8,7 +8,8 @@ header {
 
 footer {
     @include set-color-theme($primary-dark-bg);
-    @include set-pad("all");
+    padding: map-get($pad-heading, "default");
+    // @include set-pad("all");
     padding-top: 0;
 
     .contact__person {
@@ -22,8 +23,9 @@ footer {
 
 main {
     section {
-        @include set-pad("vertical");
-        @include set-pad("bottom");
+        padding: 0 map-get($pad-heading, "default") map-get($pad-heading, "default");
+        // @include set-pad("vertical");
+        // @include set-pad("bottom");
     }
 }
 
