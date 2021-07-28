@@ -24,6 +24,6 @@
         justify-content: flex-start;
         position: absolute;
         z-index: 2;
-        padding: 0 $default-gutter;
+        padding: 0 map-get($pad, "default");
     }
 }

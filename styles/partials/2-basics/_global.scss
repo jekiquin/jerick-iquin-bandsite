@@ -4,16 +4,16 @@
 
 header {
     @include set-color-theme($primary-dark-bg);
-    padding-top: $default-gutter;
+    padding-top: map-get($pad, "default");
 }
 
 footer {
     @include set-color-theme($primary-dark-bg);
-    padding: $default-gutter;
+    padding: map-get($pad, "default");
 }
 
 main {
     section {
-        padding: $default-gutter;
+        padding: map-get($pad, "default");
     }
 }

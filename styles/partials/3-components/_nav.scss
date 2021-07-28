@@ -30,7 +30,7 @@
         #{$nav}__link {
             display: block;
             color: $inactive-link;
-            padding: $default-gutter;
+            padding: map-get($pad, "default");
     
             &:hover {
                 @extend %link-active;

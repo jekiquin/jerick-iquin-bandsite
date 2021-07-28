@@ -11,10 +11,16 @@ $cta-hover-bg: black;               //bandsite-darkblack
 $divider-line-color: #E1E1E1;       //mercury
 $alternative-light-bg: #FAFAFA;     //alabaster
 
-//default margin and padding
-$default-gutter: 1.6rem;
-$headline-top-pad: 2.4rem;
+//padding
+$pad: (
+    "default": 1.6rem,
+    "tablet": 3.6rem
+);
 
+$pad-heading: (
+    "default": 2.4rem,
+    "tablet": 4.8rem
+);
 
 //breakpoints
 $screen: (
