@@ -1,0 +1,9 @@
+@use "./variables" as *;
+
+@function set-font-color($background-color) {
+    @if (lightness($background-color) > 70) {
+        @return $bandsite-black;
+    } @else {
+        @return $white;
+    }
+}

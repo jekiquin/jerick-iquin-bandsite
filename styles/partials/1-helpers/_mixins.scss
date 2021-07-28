@@ -1,0 +1,6 @@
+@use "./functions" as *;
+
+@mixin set-color-theme($background-color) {
+    background-color: $background-color;
+    color: set-font-color($background-color);
+}

@@ -31,6 +31,10 @@ p, a {
   font-weight: 400;
 }
 
+a {
+  color: inherit;
+}
+
 @font-face {
   font-family: "Avenir Next";
   src: url("../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff");
