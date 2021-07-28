@@ -9,6 +9,19 @@
 @use "./partials/3-components/nav";
 @use "./partials/3-components/hero";
 
+.quote-container {
+    &__quote {  
+        font-weight: 600;
+    }
+
+    &__citation {
+        font-weight: 600;
+        &::before {
+            content: "- ";
+        }
+    }
+}
+
 .gallery {
     background-color: $alternative-light-bg;
 }

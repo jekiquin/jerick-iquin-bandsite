@@ -10,7 +10,7 @@
 
     &--main {
         #{$nav}__header {
-            margin-top: map-get($pad, "default");
+            padding-top: map-get($pad, "default");
         }
 
         #{$nav}__list {
@@ -42,6 +42,19 @@
             }
         }
 
+    }
+
+    &--footer {
+        align-items: flex-start;
+
+        #{$nav}__header {
+            font-size: 1.8em;
+            font-weight: 700;
+        }
+
+        #{$nav}__item {
+            padding-right: map-get($pad,"default");
+        }
     }
 
 }

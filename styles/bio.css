@@ -38,26 +38,24 @@ h3 {
   }
 }
 
-p, a, cite,
-address {
+address, p, blockquote, a, cite {
   font-size: 1.3rem;
   line-height: 1.8rem;
   font-weight: 400;
   font-style: normal;
+}
+
+p, blockquote, a, cite {
   padding-top: 1.6rem;
 }
 @media (min-width: 768px) {
-  p, a, cite,
-address {
+  p, blockquote, a, cite {
     padding-top: 3.6rem;
   }
 }
 
 cite {
   display: block;
-}
-cite::before {
-  content: "- ";
 }
 
 a {
@@ -93,11 +91,18 @@ footer {
   background-color: #323232;
   color: white;
   padding: 1.6rem;
+  padding-top: 0;
 }
 @media (min-width: 768px) {
   footer {
     padding: 3.6rem;
   }
+}
+footer .contact__person {
+  font-weight: 700;
+}
+footer .footer-mobile {
+  padding-top: 4.8rem;
 }
 
 main section {
@@ -144,7 +149,7 @@ img {
 }
 
 .nav--main .nav__header {
-  margin-top: 1.6rem;
+  padding-top: 1.6rem;
 }
 .nav--main .nav__list {
   justify-content: space-around;
@@ -162,6 +167,17 @@ img {
   color: #E1E1E1;
   padding: 1.6rem;
 }
+.nav--footer {
+  align-items: flex-start;
+}
+.nav--footer .nav__header {
+  font-size: 1.8em;
+  font-weight: 700;
+}
+.nav--footer .nav__item {
+  padding-right: 1.6rem;
+}
+
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   background-position: center;
@@ -186,6 +202,16 @@ img {
   .hero__title {
     padding: 0 3.6rem;
   }
+}
+
+.quote-container__quote {
+  font-weight: 600;
+}
+.quote-container__citation {
+  font-weight: 600;
+}
+.quote-container__citation::before {
+  content: "- ";
 }
 
 .gallery {

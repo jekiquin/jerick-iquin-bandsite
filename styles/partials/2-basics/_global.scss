@@ -9,6 +9,15 @@ header {
 footer {
     @include set-color-theme($primary-dark-bg);
     @include set-pad("all");
+    padding-top: 0;
+
+    .contact__person {
+        font-weight: 700;
+    }
+
+    .footer-mobile {
+        padding-top: map-get($pad-heading, "tablet");
+    }
 }
 
 main {
