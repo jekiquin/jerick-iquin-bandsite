@@ -1,7 +1,11 @@
-// colors
-$bandsite-black: #323232;
-$silver: #AFAFAF;
-$white: white;
-$bandsite-darkblack: black;
-$mercury: #E1E1E1;
-$alabaster: #FAFAFA;
+// color usage
+$primary-color-dark-bg: white;
+$primary-color-light-bg: #323232;   // bandsite-black
+$primary-dark-bg: #323232;          // bandsite-black
+$primary-light-bg: white;
+$active-cta-color: white;
+$inactive-cta-color: #AFAFAF;       //silver
+
+$cta-hover-bg: black;               //bandsite-darkblack
+$divider-line-color: #E1E1E1;       //mercury
+$alternative-light-bg: #FAFAFA;     //alabaster
