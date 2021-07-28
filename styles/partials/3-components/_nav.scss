@@ -9,6 +9,10 @@
     }
 
     &--main {
+        #{$nav}__header {
+            margin-top: map-get($pad, "default");
+        }
+
         #{$nav}__list {
             justify-content: space-around;
             width: 100%;
@@ -30,8 +34,8 @@
         #{$nav}__link {
             display: block;
             color: $inactive-link;
-            // padding: map-get($pad, "default");
-            @include set-pad("all");
+            padding: map-get($pad, "default");
+            // @include set-pad("all");
     
             &:hover {
                 @extend %link-active;
