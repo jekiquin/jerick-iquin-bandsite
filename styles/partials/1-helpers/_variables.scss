@@ -9,3 +9,9 @@ $inactive-cta-color: #AFAFAF;       //silver
 $cta-hover-bg: black;               //bandsite-darkblack
 $divider-line-color: #E1E1E1;       //mercury
 $alternative-light-bg: #FAFAFA;     //alabaster
+
+//breakpoints
+$screen: (
+    "tablet": 768px,
+    "desktop": 1280px
+)

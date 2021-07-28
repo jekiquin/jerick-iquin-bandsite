@@ -4,3 +4,16 @@
     background-color: $background-color;
     color: set-font-color($background-color);
 }
+
+@mixin set-background($url) {
+    background-image: url($url);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin set-media($breakpoint) {
+    @media (min-width: $breakpoint) {
+        @content;
+    }
+}
