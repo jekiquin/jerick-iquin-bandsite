@@ -6,3 +6,8 @@ header {
     @include set-color-theme($primary-dark-bg);
     padding-top: $default-gutter;
 }
+
+footer {
+    @include set-color-theme($primary-dark-bg);
+    padding: $default-gutter;
+}
