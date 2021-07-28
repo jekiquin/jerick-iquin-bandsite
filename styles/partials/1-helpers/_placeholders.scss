@@ -1,3 +1,4 @@
+// flex
 %flex {
     display: flex;
     justify-content: center;
@@ -7,4 +8,10 @@
 %flex--column {
     @extend %flex;
     flex-direction: column;
+}
+
+// cover whole parent
+%cover {
+    height: 100%;
+    width: 100%;
 }

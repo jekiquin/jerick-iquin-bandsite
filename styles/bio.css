@@ -56,6 +56,17 @@ ul {
   src: url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
   font-weight: 700;
 }
+.hero__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero__mask, .hero__title {
+  height: 100%;
+  width: 100%;
+}
+
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   background-position: center;
@@ -71,13 +82,13 @@ ul {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
   background-color: #323232;
   opacity: 0.5;
   z-index: 1;
 }
 .hero__title {
-  position: relative;
+  justify-content: flex-start;
+  position: absolute;
   z-index: 2;
+  padding: 0 1.6rem;
 }/*# sourceMappingURL=bio.css.map */

@@ -1,3 +1,7 @@
+@use "../1-helpers/mixins" as *;
+@use "../1-helpers/variables" as *;
+@use "../1-helpers/placeholders" as *;
+
 .hero {
     @include set-background("../assets/images/hero-bio.jpg");
     width: 100%;
@@ -6,19 +10,23 @@
     z-index: 1;
     color: $font-color-dark-bg;
 
+
     &__mask{
+        @extend %cover;
         position: absolute;
         top: 0;
         left: 0;
-        height: 100%;
-        width: 100%;
         background-color: $primary-dark-bg;
         opacity: 0.5;
         z-index: 1;
     }
 
     &__title {
-        position: relative;
+        @extend %cover;
+        @extend %flex;
+        justify-content: flex-start;
+        position: absolute;
         z-index: 2;
+        padding: 0 $default-gutter;
     }
 }
