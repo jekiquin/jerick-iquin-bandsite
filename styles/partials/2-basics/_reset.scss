@@ -1,6 +1,9 @@
+@use "../1-helpers/variables" as *;
+
 html {
     font-family: "Avenir Next";
     font-size: 62.5%;
+    color: $font-color-light-bg;
 }
 
 body {
@@ -33,4 +36,9 @@ p, a {
 
 a {
     color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
 }
