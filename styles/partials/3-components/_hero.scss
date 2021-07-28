@@ -1,6 +1,4 @@
-@use "../1-helpers/mixins" as *;
-@use "../1-helpers/variables" as *;
-@use "../1-helpers/placeholders" as *;
+@use "../1-helpers/all-helpers" as *;
 
 .hero {
     @include set-background("../assets/images/hero-bio.jpg");

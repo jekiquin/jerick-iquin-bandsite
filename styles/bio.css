@@ -56,10 +56,20 @@ ul {
   src: url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff");
   font-weight: 700;
 }
-.hero__title {
+header {
+  background-color: #323232;
+  color: white;
+  padding-top: 1.6rem;
+}
+
+.hero__title, .nav__list, .nav {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.nav {
+  flex-direction: column;
 }
 
 .hero__mask, .hero__title {
@@ -67,6 +77,28 @@ ul {
   width: 100%;
 }
 
+.nav__item--active .nav__link, .nav__link:hover {
+  color: inherit;
+  border-bottom: 2px solid;
+  border-bottom-color: inherit;
+}
+
+.nav__list {
+  justify-content: space-around;
+  width: 100%;
+}
+.nav__item {
+  flex-basis: 100%;
+  text-align: center;
+}
+.nav__item--active .nav__link {
+  font-weight: 700;
+}
+.nav__link {
+  display: block;
+  color: #E1E1E1;
+  padding: 1.6rem;
+}
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   background-position: center;

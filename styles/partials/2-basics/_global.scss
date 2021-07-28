@@ -1,0 +1,8 @@
+@use "../1-helpers/variables" as *;
+@use "../1-helpers/mixins" as *;
+
+
+header {
+    @include set-color-theme($primary-dark-bg);
+    padding-top: $default-gutter;
+}
