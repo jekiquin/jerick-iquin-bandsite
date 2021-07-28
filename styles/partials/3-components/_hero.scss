@@ -7,23 +7,17 @@
     color: $font-color-dark-bg;
     position: relative;
     z-index: 1;
-    
-    &__mask{
-        @extend %cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        background-color: $primary-dark-bg;
-        opacity: 0.5;
-        z-index: 1;
-    }
 
     &__title {
         @extend %cover;
         @extend %flex;
         justify-content: flex-start;
         position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba($primary-dark-bg, 0.5);
         z-index: 2;
-        padding: 0 map-get($pad, "default");
+        @include set-pad("vertical");
+
     }
 }

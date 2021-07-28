@@ -26,10 +26,19 @@ h3 {
   font-weight: 600;
 }
 
-p, a {
+p, a, cite,
+address {
   font-size: 1.3rem;
   line-height: 1.8rem;
   font-weight: 400;
+  font-style: normal;
+}
+
+cite {
+  display: block;
+}
+cite::before {
+  content: "- ";
 }
 
 a {
@@ -61,15 +70,42 @@ header {
   color: white;
   padding-top: 1.6rem;
 }
+@media (min-width: 768px) {
+  header {
+    padding-top: 3.6rem;
+  }
+}
 
 footer {
   background-color: #323232;
   color: white;
   padding: 1.6rem;
 }
+@media (min-width: 768px) {
+  footer {
+    padding: 3.6rem;
+  }
+}
 
 main section {
-  padding: 1.6rem;
+  padding: 0 1.6rem;
+  padding-bottom: 1.6rem;
+}
+@media (min-width: 768px) {
+  main section {
+    padding: 0 3.6rem;
+  }
+}
+@media (min-width: 768px) {
+  main section {
+    padding-bottom: 3.6rem;
+  }
+}
+
+img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
 }
 
 .hero__title, .nav__list, .nav {
@@ -82,7 +118,7 @@ main section {
   flex-direction: column;
 }
 
-.hero__mask, .hero__title {
+.hero__title {
   height: 100%;
   width: 100%;
 }
@@ -109,6 +145,11 @@ main section {
   color: #E1E1E1;
   padding: 1.6rem;
 }
+@media (min-width: 768px) {
+  .nav--main .nav__link {
+    padding: 3.6rem;
+  }
+}
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
   background-position: center;
@@ -120,23 +161,21 @@ main section {
   position: relative;
   z-index: 1;
 }
-.hero__mask {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: #323232;
-  opacity: 0.5;
-  z-index: 1;
-}
 .hero__title {
   justify-content: flex-start;
   position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(50, 50, 50, 0.5);
   z-index: 2;
   padding: 0 1.6rem;
 }
+@media (min-width: 768px) {
+  .hero__title {
+    padding: 0 3.6rem;
+  }
+}
 
-img {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 100%;
+.gallery {
+  background-color: #FAFAFA;
 }/*# sourceMappingURL=bio.css.map */

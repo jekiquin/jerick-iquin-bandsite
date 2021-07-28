@@ -9,7 +9,6 @@
 @use "./partials/3-components/nav";
 @use "./partials/3-components/hero";
 
-img {
-    object-fit: cover;
-    width: 100%;
+.gallery {
+    background-color: $alternative-light-bg;
 }

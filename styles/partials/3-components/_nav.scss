@@ -30,7 +30,8 @@
         #{$nav}__link {
             display: block;
             color: $inactive-link;
-            padding: map-get($pad, "default");
+            // padding: map-get($pad, "default");
+            @include set-pad("all");
     
             &:hover {
                 @extend %link-active;

@@ -4,16 +4,22 @@
 
 header {
     @include set-color-theme($primary-dark-bg);
-    padding-top: map-get($pad, "default");
+    @include set-pad("top");
 }
 
 footer {
     @include set-color-theme($primary-dark-bg);
-    padding: map-get($pad, "default");
+    @include set-pad("all");
 }
 
 main {
     section {
-        padding: map-get($pad, "default");
+        @include set-pad("vertical");
+        @include set-pad("bottom");
     }
+}
+
+img {
+    object-fit: cover;
+    width: 100%;
 }
