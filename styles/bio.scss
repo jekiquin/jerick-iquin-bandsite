@@ -49,11 +49,11 @@
                 margin-bottom: map-get($pad, "default");;
             }
 
-            @include set-media(map-get($screen, "tablet")) {
+            @include set-media(map-get($screen, "mobile2")) {
                 width: 48%;
             }
         }
-        @include set-media(map-get($screen, "tablet")) {
+        @include set-media(map-get($screen, "mobile2")) {
             flex-direction: row;
             justify-content: space-between;
         }
