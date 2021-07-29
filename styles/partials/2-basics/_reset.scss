@@ -59,7 +59,7 @@ address {
 
 p {
     @extend address;
-    max-width: 70ch;
+    max-width: $max-width-text;
 }
 
 cite {

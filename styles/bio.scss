@@ -1,6 +1,5 @@
 // setup and resets
-@use "./partials/1-helpers/variables" as *;
-@use "./partials/1-helpers/mixins" as *;
+@use "./partials/1-helpers/all-helpers" as *;
 @use "./partials/2-basics/basics";
 
 // layout and components
@@ -14,7 +13,7 @@
 
     &__image {
         width: 100%;
-        max-width: 70rem;
+        max-width: $max-width;
         margin-top: map-get($pad, "default");
         margin-left: auto;
         margin-right: auto;
@@ -41,12 +40,22 @@
 
 .band {
     .info {
+        @extend %flex--column;
+        align-items: flex-start;
         &__part {
             margin-top: map-get($pad, "default");
     
             &--2 {
                 margin-bottom: map-get($pad, "default");;
             }
+
+            @include set-media(map-get($screen, "tablet")) {
+                width: 48%;
+            }
+        }
+        @include set-media(map-get($screen, "tablet")) {
+            flex-direction: row;
+            justify-content: space-between;
         }
     }
     @include center-body-text;

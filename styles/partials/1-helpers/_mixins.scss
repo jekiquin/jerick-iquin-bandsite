@@ -21,7 +21,7 @@
 
 @mixin center-body-text {
     @include set-media(map-get($screen, "mobile2")){
-        width: fit-content;
+        max-width: $max-width;
         margin-left: auto;
         margin-right: auto;
     }

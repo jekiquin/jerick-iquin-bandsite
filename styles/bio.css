@@ -1,10 +1,10 @@
-.hero__title, .nav__list, .gallery, .gallery__container, .nav, .footer .contacts {
+.hero__title, .nav__list, .band .info, .gallery, .gallery__container, .nav, .footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.gallery, .gallery__container, .nav, .footer .contacts {
+.band .info, .gallery, .gallery__container, .nav, .footer .contacts {
   flex-direction: column;
 }
 
@@ -81,7 +81,7 @@ address, p, blockquote, a, cite {
 }
 
 p, blockquote, a, cite {
-  max-width: 70ch;
+  max-width: 65ch;
 }
 
 cite {
@@ -251,7 +251,7 @@ header {
 }
 .about__image {
   width: 100%;
-  max-width: 70rem;
+  max-width: 80rem;
   margin-top: 1.6rem;
   margin-left: auto;
   margin-right: auto;
@@ -269,25 +269,35 @@ header {
 }
 @media (min-width: 560px) {
   .about .quote-container {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
   }
 }
 
+.band .info {
+  align-items: flex-start;
+}
 .band .info__part {
   margin-top: 1.6rem;
 }
 .band .info__part--2 {
   margin-bottom: 1.6rem;
 }
+@media (min-width: 768px) {
+  .band .info__part {
+    width: 48%;
+  }
+}
+@media (min-width: 768px) {
+  .band .info {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
 @media (min-width: 560px) {
   .band {
-    width: -webkit-fit-content;
-    width: -moz-fit-content;
-    width: fit-content;
+    max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
   }
