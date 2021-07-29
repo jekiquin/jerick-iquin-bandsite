@@ -29,3 +29,11 @@ img {
     object-fit: cover;
     width: 100%;
 }
+
+.headline {
+    margin-top: map-get($pad-heading, "default");
+
+    @include set-media(map-get($screen, "tablet")) {
+        margin-top: map-get($pad-heading, "tablet");
+    }
+}

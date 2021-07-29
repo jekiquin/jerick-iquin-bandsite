@@ -1,3 +1,30 @@
+.hero__title, .nav__list, .nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav {
+  flex-direction: column;
+}
+
+.hero__title {
+  height: 100%;
+  width: 100%;
+}
+
+.nav--main .nav__item--active .nav__link, .nav--main .nav__link:hover {
+  color: inherit;
+  border-bottom: 2px solid;
+  border-bottom-color: inherit;
+}
+
+h1, h2 {
+  font-size: 2.4rem;
+  line-height: 3.2rem;
+  font-weight: 700;
+}
+
 html {
   font-family: "Avenir Next";
   font-size: 62.5%;
@@ -14,10 +41,18 @@ body {
   padding: 0;
 }
 
-h1, h2 {
-  font-size: 2.4rem;
-  line-height: 3.2rem;
-  font-weight: 700;
+@media (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+    line-height: 6.8rem;
+  }
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 3.6rem;
+    line-height: 4.4rem;
+  }
 }
 
 h3 {
@@ -25,12 +60,24 @@ h3 {
   line-height: 2.2rem;
   font-weight: 600;
 }
+@media (min-width: 768px) {
+  h3 {
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+}
 
 address, p, blockquote, a, cite {
   font-size: 1.3rem;
   line-height: 1.8rem;
   font-weight: 400;
   font-style: normal;
+}
+@media (min-width: 768px) {
+  address, p, blockquote, a, cite {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
 }
 
 cite {
@@ -83,25 +130,13 @@ img {
   width: 100%;
 }
 
-.hero__title, .nav__list, .nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.headline {
+  margin-top: 2.4rem;
 }
-
-.nav {
-  flex-direction: column;
-}
-
-.hero__title {
-  height: 100%;
-  width: 100%;
-}
-
-.nav--main .nav__item--active .nav__link, .nav--main .nav__link:hover {
-  color: inherit;
-  border-bottom: 2px solid;
-  border-bottom-color: inherit;
+@media (min-width: 768px) {
+  .headline {
+    margin-top: 4.8rem;
+  }
 }
 
 .nav--main .nav__header {
