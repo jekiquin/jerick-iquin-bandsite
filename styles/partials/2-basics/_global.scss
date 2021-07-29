@@ -6,34 +6,37 @@ header {
     @include set-color-theme($primary-dark-bg);
 }
 
-footer {
+.footer {
     @include set-color-theme($primary-dark-bg);
+    padding: 0 map-get($pad, "default");
 
-    .contact__person {
-        font-weight: 700;
+    .contact {
+        margin-top: map-get($pad, "default");
+
+        & > * {
+            margin-top: map-get($pad, "default");
+        }
+
+        .contact__person {
+            font-weight: 700;
+        }
     }
 
-    .footer-mobile {
+    &__mobile {
         padding-top: map-get($pad-heading, "tablet");
     }
-}
 
-// main {
-//     section {
-//         padding: 0 map-get($pad-heading, "default") map-get($pad-heading, "default");
+    &__copyright {
+        padding: map-get($pad, "default") 0;
+    }
 
-//     }
-// }
 
-img {
-    object-fit: cover;
-    width: 100%;
 }
 
 .headline {
-    margin-top: map-get($pad-heading, "default");
+    padding-top: map-get($pad-heading, "default");
 
     @include set-media(map-get($screen, "tablet")) {
-        margin-top: map-get($pad-heading, "tablet");
+        padding-top: map-get($pad-heading, "tablet");
     }
 }

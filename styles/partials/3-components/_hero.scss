@@ -17,5 +17,6 @@
         left: 0;
         background-color: rgba($primary-dark-bg, 0.5);
         z-index: 2;
+        padding: map-get($pad, "default");
     }
 }

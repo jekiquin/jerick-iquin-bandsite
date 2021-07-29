@@ -9,19 +9,53 @@
 @use "./partials/3-components/nav";
 @use "./partials/3-components/hero";
 
-.quote-container {
-    &__quote {  
-        font-weight: 600;
+.about {
+    padding: 0 map-get($pad, "default");
+
+    &__image {
+        width: 100%;
+        margin-top: map-get($pad, "default");
     }
 
-    &__citation {
-        font-weight: 600;
-        &::before {
-            content: "- ";
+    .quote-container {
+        &__quote {  
+            font-weight: 600;
+            margin-top: map-get($pad, "default");
+        }
+    
+        &__citation {
+            font-weight: 600;
+            margin-top: map-get($pad, "default");
+            &::before {
+                content: "- ";
+            }
+        }
+    }
+}
+
+.info {
+    &__part {
+        margin-top: map-get($pad, "default");
+
+        &--2 {
+            margin-bottom: map-get($pad, "default");;
         }
     }
 }
 
 .gallery {
+    @extend %flex--column;
+    width: 100%;
     background-color: $alternative-light-bg;
+    padding: 0 map-get($pad, "default");
+    
+
+    &__container {
+        @extend %flex--column;
+    }
+
+    &__item {
+        width: 100%;
+        margin: map-get($pad, "default");
+    }
 }

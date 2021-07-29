@@ -47,12 +47,15 @@
         align-items: flex-start;
 
         #{$nav}__header {
-            font-size: 1.8em;
             font-weight: 700;
         }
 
+        #{$nav}__list {
+            margin-top: map-get($pad, "default");
+        }
+
         #{$nav}__item {
-            padding-right: map-get($pad,"default");
+            padding-right: 2 * map-get($pad,"default");
         }
     }
 
