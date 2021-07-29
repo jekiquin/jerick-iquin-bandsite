@@ -15,7 +15,7 @@
 
 .nav--main .nav__item--active .nav__link, .nav--main .nav__link:hover {
   color: inherit;
-  border-bottom: 2px solid;
+  border-bottom: 4px solid;
   border-bottom-color: inherit;
 }
 
