@@ -21,7 +21,6 @@ h1{
     font-size: 2.4rem;
     line-height: 3.2rem;
     font-weight: 700;
-    @include set-pad-heading;
 }
 
 h2 {
@@ -32,7 +31,6 @@ h3 {
     font-size: 1.4rem;
     line-height: 2.2rem;
     font-weight: 600;
-    @include set-pad-heading;
 }
 
 address {
@@ -44,8 +42,6 @@ address {
 
 p {
     @extend address;
-    // @include set-pad("top");
-    padding-top: map-get($pad, "default");
 }
 
 cite {
