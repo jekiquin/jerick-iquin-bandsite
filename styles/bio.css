@@ -155,21 +155,53 @@ header {
 .nav--main .nav__header {
   padding-top: 1.6rem;
 }
+@media (min-width: 768px) {
+  .nav--main .nav__header {
+    font-weight: 400;
+    font-size: 2.4rem;
+    padding: 0;
+  }
+}
 .nav--main .nav__list {
   justify-content: space-around;
   width: 100%;
 }
+@media (min-width: 768px) {
+  .nav--main .nav__list {
+    justify-content: flex-start;
+  }
+}
 .nav--main .nav__item {
-  flex-basis: 100%;
+  width: 50%;
   text-align: center;
 }
 .nav--main .nav__item--active .nav__link {
   font-weight: 700;
 }
+@media (min-width: 768px) {
+  .nav--main .nav__item {
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    margin-left: 3.6rem;
+  }
+}
 .nav--main .nav__link {
   display: block;
   color: #E1E1E1;
   padding: 1.6rem;
+}
+@media (min-width: 768px) {
+  .nav--main .nav__link {
+    display: inline-block;
+    padding: 3.6rem 0;
+  }
+}
+@media (min-width: 768px) {
+  .nav--main {
+    flex-direction: row;
+    padding: 0 4.8rem;
+  }
 }
 .nav--footer {
   align-items: flex-start;
