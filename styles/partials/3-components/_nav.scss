@@ -73,14 +73,26 @@
 
         #{$nav}__header {
             font-weight: 700;
+            font-size: 2.4rem;
         }
 
         #{$nav}__list {
             margin-top: map-get($pad, "default");
+
+            @include set-media(map-get($screen, "tablet")) {
+                margin-left: map-get($pad, "tablet");
+                margin-top: map-get($pad, "tablet");
+            }
         }
 
         #{$nav}__item {
             padding-right: 2 * map-get($pad,"default");
+        }
+
+        @include set-media(map-get($screen, "tablet")) {
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
         }
     }
 

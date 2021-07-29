@@ -125,6 +125,7 @@ header {
   background-color: #323232;
   color: white;
   padding: 0 1.6rem;
+  position: relative;
 }
 .footer .contacts {
   align-items: flex-start;
@@ -138,9 +139,28 @@ header {
 .footer .contacts .contact .contact__person {
   font-weight: 700;
 }
+@media (min-width: 768px) {
+  .footer .contacts .contact {
+    margin: 1.8rem;
+  }
+}
+@media (min-width: 768px) {
+  .footer .contacts {
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
 .footer__header {
   font-weight: 400;
+  font-size: 1.8rem;
   padding-top: 4.8rem;
+}
+@media (min-width: 768px) {
+  .footer__header {
+    position: absolute;
+    top: 0;
+    right: 4.8rem;
+  }
 }
 .footer__copyright {
   padding: 1.6rem 0;
@@ -216,12 +236,26 @@ header {
 }
 .nav--footer .nav__header {
   font-weight: 700;
+  font-size: 2.4rem;
 }
 .nav--footer .nav__list {
   margin-top: 1.6rem;
 }
+@media (min-width: 768px) {
+  .nav--footer .nav__list {
+    margin-left: 3.6rem;
+    margin-top: 3.6rem;
+  }
+}
 .nav--footer .nav__item {
   padding-right: 3.2rem;
+}
+@media (min-width: 768px) {
+  .nav--footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+  }
 }
 
 .hero {
