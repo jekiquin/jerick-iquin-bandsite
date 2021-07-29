@@ -309,7 +309,21 @@ header {
   background-color: #FAFAFA;
   padding: 0 1.6rem;
 }
+@media (min-width: 768px) {
+  .gallery__container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 96rem;
+    margin: 0 auto;
+  }
+}
 .gallery__item {
   width: 100%;
   margin: 1.6rem;
+}
+@media (min-width: 768px) {
+  .gallery__item {
+    margin: 1.2rem 1.2rem;
+    width: 30%;
+  }
 }/*# sourceMappingURL=bio.css.map */

@@ -72,10 +72,22 @@
 
     &__container {
         @extend %flex--column;
+
+        @include set-media(map-get($screen, "tablet")) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            max-width: $max-width * 1.2;
+            margin: 0 auto;
+        }
     }
 
     &__item {
         width: 100%;
         margin: map-get($pad, "default");
+
+        @include set-media(map-get($screen, "tablet")) {
+            margin: 1.2rem 1.2rem;
+            width: 30%;
+        }
     }
 }
