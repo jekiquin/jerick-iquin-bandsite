@@ -80,6 +80,10 @@ address, p, blockquote, a, cite {
   }
 }
 
+p, blockquote, a, cite {
+  max-width: 70ch;
+}
+
 cite {
   display: block;
 }
