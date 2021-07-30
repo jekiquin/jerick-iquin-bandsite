@@ -8,7 +8,6 @@
 
 // bio page
 .about {
-    padding: 0 map-get($pad, "default");
     width: 100%;
 
     &__image {
@@ -47,10 +46,6 @@
 
         @include center-body-text;
     }
-
-    @include set-media(map-get($screen, "tablet")) {
-        padding: 0 map-get($pad, "tablet");
-    }
 }
 
 .band {
@@ -87,7 +82,6 @@
     align-items: flex-start;
     width: 100%;
     background-color: $alternative-light-bg;
-    padding: 0 map-get($pad, "default");
     
     &__heading {
         @include set-media(map-get($screen, "tablet")) {
@@ -111,6 +105,11 @@
         margin: map-get($pad, "default");
 
         @include set-media(map-get($screen, "tablet")) {
+            margin: 0.8rem;
+            width: 30%;
+        }
+
+        @include set-media(map-get($screen, "desktop")) {
             margin: 1.2rem;
             width: 30%;
         }
@@ -119,6 +118,5 @@
     @include set-media(map-get($screen, "tablet")) {
         margin: 0 auto;
         padding: 0 0 map-get($pad, "tablet");
-
     }
 }

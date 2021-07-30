@@ -63,14 +63,12 @@
 
         @include set-media(map-get($screen, "tablet")) {
             flex-direction: row;
-            padding: 0 map-get($pad-heading, "tablet");
         }
 
     }
 
     &--footer {
         align-items: flex-start;
-        margin-left: map-get($pad, "default");
 
         #{$nav}__header {
             font-weight: 700;
@@ -93,10 +91,6 @@
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
-        }
-
-        @include set-media(map-get($screen, "tablet")) {
-            margin-left: map-get($pad, "tablet");
         }
     }
 

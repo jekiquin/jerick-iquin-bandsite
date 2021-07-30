@@ -23,7 +23,6 @@
         @extend %cover;
         @extend %flex;
         justify-content: flex-start;
-        padding: map-get($pad, "default");
         position: relative;
         z-index: 2;
     }

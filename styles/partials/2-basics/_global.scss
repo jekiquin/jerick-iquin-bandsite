@@ -14,7 +14,6 @@ footer {
 
         .contact {
             margin-top: map-get($pad, "default");
-            margin-left: map-get($pad, "default");
     
             & > * {
                 margin-top: map-get($pad, "default");
@@ -26,9 +25,9 @@ footer {
 
             @include set-media(map-get($screen, "tablet")) {
                 margin: map-get($pad, "tablet")
-                        map-get($pad, "tablet") / 2
                         map-get($pad, "tablet")
-                        map-get($pad, "tablet");
+                        map-get($pad, "tablet")
+                        0;
             }
         }
 
@@ -42,26 +41,22 @@ footer {
         font-weight: 400;
         font-size: 1.8rem;
         padding-top: map-get($pad-heading, "tablet");
-        margin-left: map-get($pad, "default");
 
         @include set-media(map-get($screen, "tablet")) {
             position: absolute;
             top: 0;
-            right: map-get($pad-heading, "tablet");
+            right: 0;
         }
 
     }
 
     .copyright {
         padding: map-get($pad, "default") 0;
-        margin-left: map-get($pad, "default");
-
-        @include set-media(map-get($screen, "tablet")) {
-            margin-left: map-get($pad, "tablet");
-        }
     }
 
     @include set-media(map-get($screen, "tablet")) {
+        padding-bottom: map-get($pad, "tablet");
+
         p, a{
             line-height: 2rem;
         }
@@ -80,7 +75,22 @@ footer {
 
 .limiting-container {
     max-width: $max-width-container;
-    margin-right: auto;
-    margin-left: auto;
+    margin-right: map-get($pad, "default");
+    margin-left:map-get($pad, "default");
     position: relative;
+
+    &--header {
+        margin: 0;
+    }
+
+    @include set-media(map-get($screen, "tablet")) {
+        margin-right: map-get($pad, "tablet");
+        margin-left:map-get($pad, "tablet");
+    }
+
+    @include set-media(map-get($screen, "desktop")) {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
 }
