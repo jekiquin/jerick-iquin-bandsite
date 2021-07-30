@@ -26,7 +26,7 @@ $pad-heading: (
 $screen: (
     "mobile2": 600px,       // to break up the long text block into column
     "tablet": 768px,
-    "desktop": 1280px
+    "desktop": 1280px       // possibly unused delete if not needed
 );
 
 // maximums
@@ -34,4 +34,5 @@ $max-width: 80rem;
 $max-width-text: 65ch;
 $min-height-hero: 150px;
 $max-height-hero: 720px;
-$min-screen-width: 320px;
+$min-screen-width: 280px;
+$max-width-container: 1080px;
