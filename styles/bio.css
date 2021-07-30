@@ -293,9 +293,19 @@ footer .copyright {
   margin-left: auto;
   margin-right: auto;
 }
+@media (min-width: 768px) {
+  .about__image {
+    margin-top: 3.6rem;
+  }
+}
 .about .quote-container__quote {
   font-weight: 600;
   margin-top: 1.6rem;
+}
+@media (min-width: 768px) {
+  .about .quote-container__quote {
+    margin-top: 3.6rem;
+  }
 }
 .about .quote-container__citation {
   font-weight: 600;
@@ -303,6 +313,11 @@ footer .copyright {
 }
 .about .quote-container__citation::before {
   content: "- ";
+}
+@media (min-width: 768px) {
+  .about .quote-container__citation {
+    margin-top: 3.6rem;
+  }
 }
 @media (min-width: 600px) {
   .about .quote-container {
@@ -324,6 +339,12 @@ footer .copyright {
 @media (min-width: 600px) {
   .band .info__part {
     width: 48%;
+  }
+}
+@media (min-width: 768px) {
+  .band .info__part {
+    margin-top: 3.6rem;
+    margin-bottom: 3.6rem;
   }
 }
 @media (min-width: 600px) {
@@ -350,7 +371,7 @@ footer .copyright {
   .gallery__container {
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 96rem;
+    max-width: 120rem;
     margin: 0 auto;
   }
 }
@@ -360,7 +381,12 @@ footer .copyright {
 }
 @media (min-width: 768px) {
   .gallery__item {
-    margin: 1.2rem 1.2rem;
-    width: 30%;
+    margin: 1.2rem;
+    width: 25%;
+  }
+}
+@media (min-width: 768px) {
+  .gallery {
+    margin: 3.6rem auto 1.2rem auto;
   }
 }/*# sourceMappingURL=bio.css.map */

@@ -18,12 +18,19 @@
         margin-left: auto;
         margin-right: auto;
 
+        @include set-media(map-get($screen, "tablet")) {
+            margin-top: map-get($pad, "tablet");
+        }
     }
 
     .quote-container {
         &__quote {  
             font-weight: 600;
             margin-top: map-get($pad, "default");
+
+            @include set-media(map-get($screen, "tablet")) {
+                margin-top: map-get($pad, "tablet");
+            }
         }
     
         &__citation {
@@ -31,6 +38,10 @@
             margin-top: map-get($pad, "default");
             &::before {
                 content: "- ";
+            }
+
+            @include set-media(map-get($screen, "tablet")) {
+                margin-top: map-get($pad, "tablet");
             }
         }
 
@@ -51,6 +62,11 @@
 
             @include set-media(map-get($screen, "mobile2")) {
                 width: 48%;
+            }
+
+            @include set-media(map-get($screen, "tablet")) {
+                margin-top: map-get($pad, "tablet");
+                margin-bottom: map-get($pad, "tablet");
             }
         }
         @include set-media(map-get($screen, "mobile2")) {
@@ -76,7 +92,7 @@
         @include set-media(map-get($screen, "tablet")) {
             flex-direction: row;
             flex-wrap: wrap;
-            max-width: $max-width * 1.2;
+            max-width: $max-width * 1.5;
             margin: 0 auto;
         }
     }
@@ -86,8 +102,13 @@
         margin: map-get($pad, "default");
 
         @include set-media(map-get($screen, "tablet")) {
-            margin: 1.2rem 1.2rem;
-            width: 30%;
+            margin: 1.2rem;
+            width: 25%;
         }
+    }
+
+    @include set-media(map-get($screen, "tablet")) {
+        margin: map-get($pad, "tablet") auto (map-get($pad, "tablet") / 3) auto;
+
     }
 }
