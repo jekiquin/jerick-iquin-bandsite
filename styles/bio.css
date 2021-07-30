@@ -1,4 +1,4 @@
-.hero__title, .nav__list, .band .info, .gallery, .gallery__container, .nav, footer .contacts {
+.hero__ctx, .nav__list, .band .info, .gallery, .gallery__container, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,7 @@
   flex-direction: column;
 }
 
-.hero__title {
+.hero__mask, .hero__ctx {
   height: 100%;
   width: 100%;
 }
@@ -92,6 +92,7 @@ cite {
 a {
   color: inherit;
   text-decoration: none;
+  display: block;
 }
 
 ul {
@@ -125,14 +126,13 @@ header {
 footer {
   background-color: #323232;
   color: white;
-  padding: 0 1.6rem;
-  position: relative;
 }
 footer .contacts {
   align-items: flex-start;
 }
 footer .contacts .contact {
   margin-top: 1.6rem;
+  margin-left: 1.6rem;
 }
 footer .contacts .contact > * {
   margin-top: 1.6rem;
@@ -142,7 +142,7 @@ footer .contacts .contact .contact__person {
 }
 @media (min-width: 768px) {
   footer .contacts .contact {
-    margin: 1.8rem;
+    margin: 3.6rem 0 3.6rem 3.6rem;
   }
 }
 @media (min-width: 768px) {
@@ -155,6 +155,7 @@ footer .heading {
   font-weight: 400;
   font-size: 1.8rem;
   padding-top: 4.8rem;
+  margin-left: 1.6rem;
 }
 @media (min-width: 768px) {
   footer .heading {
@@ -165,6 +166,12 @@ footer .heading {
 }
 footer .copyright {
   padding: 1.6rem 0;
+  margin-left: 1.6rem;
+}
+@media (min-width: 768px) {
+  footer .copyright {
+    margin-left: 3.6rem;
+  }
 }
 @media (min-width: 768px) {
   footer p, footer a {
@@ -179,6 +186,13 @@ footer .copyright {
   .headline {
     padding-top: 4.8rem;
   }
+}
+
+.limiting-container {
+  max-width: 1080px;
+  margin-right: auto;
+  margin-left: auto;
+  position: relative;
 }
 
 .nav--main .nav__header {
@@ -234,10 +248,10 @@ footer .copyright {
 }
 .nav--footer {
   align-items: flex-start;
+  margin-left: 1.6rem;
 }
 .nav--footer .nav__header {
   font-weight: 700;
-  font-size: 2.4rem;
 }
 .nav--footer .nav__list {
   margin-top: 1.6rem;
@@ -258,6 +272,11 @@ footer .copyright {
     justify-content: flex-start;
   }
 }
+@media (min-width: 768px) {
+  .nav--footer {
+    margin-left: 3.6rem;
+  }
+}
 
 .hero {
   background-image: url("../assets/images/hero-bio.jpg");
@@ -272,14 +291,18 @@ footer .copyright {
   position: relative;
   z-index: 1;
 }
-.hero__title {
-  justify-content: flex-start;
+.hero__mask {
+  background-color: rgba(50, 50, 50, 0.5);
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(50, 50, 50, 0.5);
-  z-index: 2;
+  z-index: 1;
+}
+.hero__ctx {
+  justify-content: flex-start;
   padding: 1.6rem;
+  position: relative;
+  z-index: 2;
 }
 
 .about {
@@ -326,6 +349,11 @@ footer .copyright {
     margin-right: auto;
   }
 }
+@media (min-width: 768px) {
+  .about {
+    padding: 0 3.6rem;
+  }
+}
 
 .band .info {
   align-items: flex-start;
@@ -360,6 +388,11 @@ footer .copyright {
     margin-right: auto;
   }
 }
+@media (min-width: 768px) {
+  .band {
+    padding: 0 3.6rem;
+  }
+}
 
 .gallery {
   align-items: flex-start;
@@ -388,5 +421,6 @@ footer .copyright {
 @media (min-width: 768px) {
   .gallery {
     margin: 3.6rem auto 1.2rem auto;
+    padding: 0 3.6rem;
   }
 }/*# sourceMappingURL=bio.css.map */

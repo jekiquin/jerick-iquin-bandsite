@@ -7,8 +7,6 @@ header {
 
 footer {
     @include set-color-theme($primary-dark-bg);
-    padding: 0 map-get($pad, "default");
-    position: relative;
 
     .contacts {
         @extend %flex--column;
@@ -16,6 +14,7 @@ footer {
 
         .contact {
             margin-top: map-get($pad, "default");
+            margin-left: map-get($pad, "default");
     
             & > * {
                 margin-top: map-get($pad, "default");
@@ -26,7 +25,10 @@ footer {
             }
 
             @include set-media(map-get($screen, "tablet")) {
-                margin: map-get($pad, "tablet") / 2;
+                margin: map-get($pad, "tablet")
+                        0
+                        map-get($pad, "tablet")
+                        map-get($pad, "tablet");
             }
         }
 
@@ -40,6 +42,7 @@ footer {
         font-weight: 400;
         font-size: 1.8rem;
         padding-top: map-get($pad-heading, "tablet");
+        margin-left: map-get($pad, "default");
 
         @include set-media(map-get($screen, "tablet")) {
             position: absolute;
@@ -51,6 +54,11 @@ footer {
 
     .copyright {
         padding: map-get($pad, "default") 0;
+        margin-left: map-get($pad, "default");
+
+        @include set-media(map-get($screen, "tablet")) {
+            margin-left: map-get($pad, "tablet");
+        }
     }
 
     @include set-media(map-get($screen, "tablet")) {
@@ -68,4 +76,11 @@ footer {
     @include set-media(map-get($screen, "tablet")) {
         padding-top: map-get($pad-heading, "tablet");
     }
+}
+
+.limiting-container {
+    max-width: $max-width-container;
+    margin-right: auto;
+    margin-left: auto;
+    position: relative;
 }

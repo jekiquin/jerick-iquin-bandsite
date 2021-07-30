@@ -70,10 +70,10 @@
 
     &--footer {
         align-items: flex-start;
+        margin-left: map-get($pad, "default");
 
         #{$nav}__header {
             font-weight: 700;
-            font-size: 2.4rem;
         }
 
         #{$nav}__list {
@@ -93,6 +93,10 @@
             flex-direction: row;
             align-items: center;
             justify-content: flex-start;
+        }
+
+        @include set-media(map-get($screen, "tablet")) {
+            margin-left: map-get($pad, "tablet");
         }
     }
 

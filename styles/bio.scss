@@ -47,6 +47,10 @@
 
         @include center-body-text;
     }
+
+    @include set-media(map-get($screen, "tablet")) {
+        padding: 0 map-get($pad, "tablet");
+    }
 }
 
 .band {
@@ -75,6 +79,10 @@
         }
     }
     @include center-body-text;
+
+    @include set-media(map-get($screen, "tablet")) {
+        padding: 0 map-get($pad, "tablet");
+    }
 }
 
 
@@ -109,6 +117,7 @@
 
     @include set-media(map-get($screen, "tablet")) {
         margin: map-get($pad, "tablet") auto (map-get($pad, "tablet") / 3) auto;
+        padding: 0 map-get($pad, "tablet");
 
     }
 }

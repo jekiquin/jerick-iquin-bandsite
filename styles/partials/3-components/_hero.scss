@@ -10,15 +10,21 @@
     position: relative;
     z-index: 1;
 
-    &__title {
+    &__mask {
         @extend %cover;
-        @extend %flex;
-        justify-content: flex-start;
+        background-color: rgba($primary-dark-bg, 0.5);
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba($primary-dark-bg, 0.5);
-        z-index: 2;
+        z-index: 1;
+    }
+
+    &__ctx {
+        @extend %cover;
+        @extend %flex;
+        justify-content: flex-start;
         padding: map-get($pad, "default");
+        position: relative;
+        z-index: 2;
     }
 }
