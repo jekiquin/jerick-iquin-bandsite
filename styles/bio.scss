@@ -79,10 +79,6 @@
         }
     }
     @include center-body-text;
-
-    @include set-media(map-get($screen, "tablet")) {
-        padding: 0 map-get($pad, "tablet");
-    }
 }
 
 
@@ -93,6 +89,11 @@
     background-color: $alternative-light-bg;
     padding: 0 map-get($pad, "default");
     
+    &__heading {
+        @include set-media(map-get($screen, "tablet")) {
+            margin-left: 1.2rem;
+        }
+    }
 
     &__container {
         @extend %flex--column;
@@ -100,7 +101,7 @@
         @include set-media(map-get($screen, "tablet")) {
             flex-direction: row;
             flex-wrap: wrap;
-            max-width: $max-width * 1.5;
+            max-width: $max-width-container;
             margin: 0 auto;
         }
     }
@@ -111,13 +112,13 @@
 
         @include set-media(map-get($screen, "tablet")) {
             margin: 1.2rem;
-            width: 25%;
+            width: 30%;
         }
     }
 
     @include set-media(map-get($screen, "tablet")) {
-        margin: map-get($pad, "tablet") auto (map-get($pad, "tablet") / 3) auto;
-        padding: 0 map-get($pad, "tablet");
+        margin: 0 auto;
+        padding: 0 0 map-get($pad, "tablet");
 
     }
 }

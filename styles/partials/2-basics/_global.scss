@@ -26,7 +26,7 @@ footer {
 
             @include set-media(map-get($screen, "tablet")) {
                 margin: map-get($pad, "tablet")
-                        0
+                        map-get($pad, "tablet") / 2
                         map-get($pad, "tablet")
                         map-get($pad, "tablet");
             }

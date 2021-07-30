@@ -142,7 +142,7 @@ footer .contacts .contact .contact__person {
 }
 @media (min-width: 768px) {
   footer .contacts .contact {
-    margin: 3.6rem 0 3.6rem 3.6rem;
+    margin: 3.6rem 1.8rem 3.6rem 3.6rem;
   }
 }
 @media (min-width: 768px) {
@@ -388,11 +388,6 @@ footer .copyright {
     margin-right: auto;
   }
 }
-@media (min-width: 768px) {
-  .band {
-    padding: 0 3.6rem;
-  }
-}
 
 .gallery {
   align-items: flex-start;
@@ -401,10 +396,15 @@ footer .copyright {
   padding: 0 1.6rem;
 }
 @media (min-width: 768px) {
+  .gallery__heading {
+    margin-left: 1.2rem;
+  }
+}
+@media (min-width: 768px) {
   .gallery__container {
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 120rem;
+    max-width: 1080px;
     margin: 0 auto;
   }
 }
@@ -415,12 +415,12 @@ footer .copyright {
 @media (min-width: 768px) {
   .gallery__item {
     margin: 1.2rem;
-    width: 25%;
+    width: 30%;
   }
 }
 @media (min-width: 768px) {
   .gallery {
-    margin: 3.6rem auto 1.2rem auto;
-    padding: 0 3.6rem;
+    margin: 0 auto;
+    padding: 0 0 3.6rem;
   }
 }/*# sourceMappingURL=bio.css.map */
