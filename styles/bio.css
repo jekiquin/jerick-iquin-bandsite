@@ -1,10 +1,10 @@
-.hero__title, .nav__list, .band .info, .gallery, .gallery__container, .nav, .footer .contacts {
+.hero__title, .nav__list, .band .info, .gallery, .gallery__container, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.band .info, .gallery, .gallery__container, .nav, .footer .contacts {
+.band .info, .gallery, .gallery__container, .nav, footer .contacts {
   flex-direction: column;
 }
 
@@ -29,6 +29,7 @@ html {
   font-family: "Avenir Next";
   font-size: 62.5%;
   color: #323232;
+  min-width: 320px;
 }
 
 body {
@@ -121,52 +122,52 @@ header {
   color: white;
 }
 
-.footer {
+footer {
   background-color: #323232;
   color: white;
   padding: 0 1.6rem;
   position: relative;
 }
-.footer .contacts {
+footer .contacts {
   align-items: flex-start;
 }
-.footer .contacts .contact {
+footer .contacts .contact {
   margin-top: 1.6rem;
 }
-.footer .contacts .contact > * {
+footer .contacts .contact > * {
   margin-top: 1.6rem;
 }
-.footer .contacts .contact .contact__person {
+footer .contacts .contact .contact__person {
   font-weight: 700;
 }
 @media (min-width: 768px) {
-  .footer .contacts .contact {
+  footer .contacts .contact {
     margin: 1.8rem;
   }
 }
 @media (min-width: 768px) {
-  .footer .contacts {
+  footer .contacts {
     flex-direction: row;
     justify-content: flex-start;
   }
 }
-.footer__header {
+footer .heading {
   font-weight: 400;
   font-size: 1.8rem;
   padding-top: 4.8rem;
 }
 @media (min-width: 768px) {
-  .footer__header {
+  footer .heading {
     position: absolute;
     top: 0;
     right: 4.8rem;
   }
 }
-.footer__copyright {
+footer .copyright {
   padding: 1.6rem 0;
 }
 @media (min-width: 768px) {
-  .footer p, .footer a {
+  footer p, footer a {
     line-height: 2rem;
   }
 }
@@ -266,7 +267,7 @@ header {
   width: 100%;
   height: 50vw;
   min-height: 150px;
-  max-height: 640px;
+  max-height: 720px;
   color: white;
   position: relative;
   z-index: 1;
@@ -303,7 +304,7 @@ header {
 .about .quote-container__citation::before {
   content: "- ";
 }
-@media (min-width: 560px) {
+@media (min-width: 600px) {
   .about .quote-container {
     max-width: 80rem;
     margin-left: auto;
@@ -320,18 +321,18 @@ header {
 .band .info__part--2 {
   margin-bottom: 1.6rem;
 }
-@media (min-width: 560px) {
+@media (min-width: 600px) {
   .band .info__part {
     width: 48%;
   }
 }
-@media (min-width: 560px) {
+@media (min-width: 600px) {
   .band .info {
     flex-direction: row;
     justify-content: space-between;
   }
 }
-@media (min-width: 560px) {
+@media (min-width: 600px) {
   .band {
     max-width: 80rem;
     margin-left: auto;

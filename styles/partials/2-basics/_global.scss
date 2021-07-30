@@ -5,7 +5,7 @@ header {
     @include set-color-theme($primary-dark-bg);
 }
 
-.footer {
+footer {
     @include set-color-theme($primary-dark-bg);
     padding: 0 map-get($pad, "default");
     position: relative;
@@ -36,7 +36,7 @@ header {
         }
     }
 
-    &__header {
+    .heading {
         font-weight: 400;
         font-size: 1.8rem;
         padding-top: map-get($pad-heading, "tablet");
@@ -49,7 +49,7 @@ header {
 
     }
 
-    &__copyright {
+    .copyright {
         padding: map-get($pad, "default") 0;
     }
 
