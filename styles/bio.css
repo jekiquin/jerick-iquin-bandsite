@@ -107,16 +107,19 @@ img {
   font-family: "Avenir Next";
   src: url("../assets/fonts/AvenirNextLTPro-Regular.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Regular.woff") format("woff"), url("../assets/fonts/AvenirNextLTPro.ttf") format("truetype");
   font-weight: 400;
+  font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next";
   src: url("../assets/fonts/AvenirNextLTPro-Demi.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Demi.woff") format("woff"), url("../assets/fonts/AvenirNextLTProDemi.ttf") format("truetype");
   font-weight: 600;
+  font-display: swap;
 }
 @font-face {
   font-family: "Avenir Next";
   src: url("../assets/fonts/AvenirNextLTPro-Bold.woff2") format("woff2"), url("../assets/fonts/AvenirNextLTPro-Bold.woff") format("woff"), url("../assets/fonts/AvenirNextLTProBold.ttf") format("truetype");
   font-weight: 700;
+  font-display: swap;
 }
 header {
   background-color: #323232;
@@ -326,9 +329,17 @@ footer .copyright {
   font-weight: 600;
   margin-top: 1.6rem;
 }
+@media (min-width: 600px) {
+  .about .quote-container__quote {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
 @media (min-width: 768px) {
   .about .quote-container__quote {
     margin-top: 3.6rem;
+    font-size: 1.8rem;
   }
 }
 .about .quote-container__citation {
@@ -338,13 +349,8 @@ footer .copyright {
 .about .quote-container__citation::before {
   content: "- ";
 }
-@media (min-width: 768px) {
-  .about .quote-container__citation {
-    margin-top: 3.6rem;
-  }
-}
 @media (min-width: 600px) {
-  .about .quote-container {
+  .about .quote-container__citation {
     max-width: 80rem;
     margin-left: auto;
     margin-right: auto;
