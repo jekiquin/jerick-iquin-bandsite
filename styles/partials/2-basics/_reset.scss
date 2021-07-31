@@ -21,8 +21,9 @@ h1{
     @extend %main-heading;
 
     @include set-media(map-get($screen, "tablet")) {
-        font-size: 6rem;
-        line-height: 6.8rem;
+        // font-size: 6rem;
+        // line-height: 6.8rem;
+        @include set-font-size(6rem, 6.8rem);
     }
 }
 
@@ -30,31 +31,36 @@ h2 {
     @extend %main-heading;
 
     @include set-media(map-get($screen, "tablet")) {
-        font-size: 3.6rem;
-        line-height: 4.4rem;
+        // font-size: 3.6rem;
+        // line-height: 4.4rem;
+        @include set-font-size(3.6rem, 4.4rem);
     }
 } 
 
 h3 {
-    font-size: 1.4rem;
-    line-height: 2.2rem;
+    @include set-font-size(1.4rem,  2.2rem);
+    // font-size: 1.4rem;
+    // line-height: 2.2rem;
     font-weight: 600;
 
     @include set-media(map-get($screen, "tablet")) {
-        font-size: 2.4rem;
-        line-height: 3.2rem;
+        // font-size: 2.4rem;
+        // line-height: 3.2rem;
+        @include set-font-size(2.4rem,  3.2rem);
     }
 }
 
 address {
-    font-size: 1.3rem;
-    line-height: 1.8rem;
+    @include set-font-size(1.3rem,  1.8rem);
+    // font-size: 1.3rem;
+    // line-height: 1.8rem;
     font-weight: 400;
     font-style: normal;
 
     @include set-media(map-get($screen, "tablet")) {
-        font-size: 1.4rem;
-        line-height: 2.2rem;
+        // font-size: 1.4rem;
+        // line-height: 2.2rem;
+        @include set-font-size(1.4rem,  2.2rem);
     }
 }
 
