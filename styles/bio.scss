@@ -117,7 +117,6 @@
 
         @include set-media(map-get($screen, "desktop")) {
             margin: 1.2rem;
-            width: 30%;
         }
     }
 
