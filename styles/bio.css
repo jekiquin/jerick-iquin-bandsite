@@ -406,6 +406,11 @@ footer .copyright {
 .gallery__item {
   width: 100%;
   margin: 1.6rem;
+  filter: grayscale(100%);
+  transition: filter 0.5s ease;
+}
+.gallery__item:hover {
+  filter: grayscale(0);
 }
 @media (min-width: 768px) {
   .gallery__item {
