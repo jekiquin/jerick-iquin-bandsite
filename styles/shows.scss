@@ -1,0 +1,9 @@
+// setup and resets
+@use "./partials/1-helpers/all-helpers" as *;
+@use "./partials/2-basics/basics";
+
+// layout and components
+@use "./partials/3-components/nav";
+@use "./partials/3-components/hero";
+
+// bio page
