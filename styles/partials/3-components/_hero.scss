@@ -21,7 +21,19 @@
             width: 100%;
             margin: 0;
             padding: 1.6rem;
+
+            @include set-media(map-get($screen, "tablet")) {
+                padding: 0 map-get($pad, "tablet");
+            }
+
+            @include set-media(map-get($screen, "desktop")) {
+                padding: 0;
+                margin-right: auto;
+                margin-left: auto;
+            }
         }
+
+
     }
 
     &__mask {
@@ -44,8 +56,10 @@
     &__player {
         display: block;
         width: 100%;
-        height: 20vw;
+        max-width: 48rem;
+        height: 30vw;
         max-height: 15rem;
+        min-height: 6rem;
     }
 
 }
