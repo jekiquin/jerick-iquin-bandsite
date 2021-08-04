@@ -26,4 +26,8 @@
         position: relative;
         z-index: 2;
     }
+
+    &--shows {
+        @include set-background("../assets/images/hero-shows.jpg");
+    }
 }

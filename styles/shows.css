@@ -308,4 +308,10 @@ footer .copyright {
   justify-content: flex-start;
   position: relative;
   z-index: 2;
+}
+.hero--shows {
+  background-image: url("../assets/images/hero-shows.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }/*# sourceMappingURL=shows.css.map */
