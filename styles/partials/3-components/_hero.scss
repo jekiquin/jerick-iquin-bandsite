@@ -10,6 +10,10 @@
     position: relative;
     z-index: 1;
 
+    &--shows {
+        @include set-background("../assets/images/hero-shows.jpg");
+    }
+
     &__mask {
         @extend %cover;
         background-color: rgba($primary-dark-bg, 0.5);
@@ -27,7 +31,8 @@
         z-index: 2;
     }
 
-    &--shows {
-        @include set-background("../assets/images/hero-shows.jpg");
+    &__sound {
+        width: 100%;
     }
+
 }

@@ -297,6 +297,12 @@ footer .copyright {
   position: relative;
   z-index: 1;
 }
+.hero--shows {
+  background-image: url("../assets/images/hero-shows.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .hero__mask {
   background-color: rgba(50, 50, 50, 0.5);
   position: absolute;
@@ -309,9 +315,6 @@ footer .copyright {
   position: relative;
   z-index: 2;
 }
-.hero--shows {
-  background-image: url("../assets/images/hero-shows.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+.hero__sound {
+  width: 100%;
 }/*# sourceMappingURL=shows.css.map */
