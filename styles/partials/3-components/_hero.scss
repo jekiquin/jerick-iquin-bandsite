@@ -1,6 +1,7 @@
 @use "../1-helpers/all-helpers" as *;
 
 .hero {
+    $hero: &;
     @include set-background("../assets/images/hero-bio.jpg");
     width: 100%;
     height: 50vw;
@@ -12,6 +13,15 @@
 
     &--shows {
         @include set-background("../assets/images/hero-shows.jpg");
+        height: 65vw;
+
+        #{$hero}__ctx {
+            @extend %flex--column;
+            align-items: flex-start;
+            width: 100%;
+            margin: 0;
+            padding: 1.6rem;
+        }
     }
 
     &__mask {
@@ -31,8 +41,11 @@
         z-index: 2;
     }
 
-    &__sound {
+    &__player {
+        display: block;
         width: 100%;
+        height: 20vw;
+        max-height: 15rem;
     }
 
 }
