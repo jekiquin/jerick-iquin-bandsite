@@ -50,6 +50,11 @@
         #{$hero}__subtitle {
             font-size: 2.0rem;
             margin-bottom: map-get($pad, "default");
+
+            @include set-media(map-get($screen, "tablet")) {
+                font-size: 2.8rem;
+                margin-bottom: map-get($pad, "tablet");
+            }
         }
 
 
