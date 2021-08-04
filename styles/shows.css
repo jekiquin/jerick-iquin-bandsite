@@ -302,7 +302,11 @@ footer .copyright {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 65vw;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
 }
 .hero--shows .hero__ctx {
   align-items: flex-start;
@@ -317,9 +321,35 @@ footer .copyright {
 }
 @media (min-width: 1280px) {
   .hero--shows .hero__ctx {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
     padding: 0;
     margin-right: auto;
     margin-left: auto;
+  }
+}
+.hero--shows .hero__title {
+  max-width: 15ch;
+  margin-bottom: 1.6rem;
+}
+@media (min-width: 768px) {
+  .hero--shows .hero__title {
+    margin-bottom: 3.6rem;
+  }
+}
+.hero--shows .hero__subtitle {
+  font-size: 2rem;
+  margin-bottom: 1.6rem;
+}
+.hero--shows .hero__player {
+  display: block;
+  width: 100%;
+  max-width: 48rem;
+}
+@media (min-width: 768px) {
+  .hero--shows {
+    height: 66vw;
   }
 }
 .hero__mask {
@@ -333,12 +363,4 @@ footer .copyright {
   justify-content: flex-start;
   position: relative;
   z-index: 2;
-}
-.hero__player {
-  display: block;
-  width: 100%;
-  max-width: 48rem;
-  height: 30vw;
-  max-height: 15rem;
-  min-height: 6rem;
 }/*# sourceMappingURL=shows.css.map */

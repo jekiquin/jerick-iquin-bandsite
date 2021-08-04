@@ -13,7 +13,9 @@
 
     &--shows {
         @include set-background("../assets/images/hero-shows.jpg");
-        height: 65vw;
+        height: fit-content;
+        padding-top: map-get($pad, "default");
+        padding-bottom: map-get($pad, "default");
 
         #{$hero}__ctx {
             @extend %flex--column;
@@ -27,13 +29,40 @@
             }
 
             @include set-media(map-get($screen, "desktop")) {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
                 padding: 0;
                 margin-right: auto;
                 margin-left: auto;
             }
         }
 
+        #{$hero}__title {
+            max-width: 15ch;
+            margin-bottom: map-get($pad, "default");
 
+            @include set-media(map-get($screen, "tablet")) {
+                margin-bottom: map-get($pad, "tablet");
+            }
+        }
+
+        #{$hero}__subtitle {
+            font-size: 2.0rem;
+            margin-bottom: map-get($pad, "default");
+        }
+
+
+
+        #{$hero}__player {
+            display: block;
+            width: 100%;
+            max-width: 48rem;
+        }
+
+        @include set-media(map-get($screen, "tablet")) {
+            height: 66vw;
+        }
     }
 
     &__mask {
@@ -51,15 +80,6 @@
         justify-content: flex-start;
         position: relative;
         z-index: 2;
-    }
-
-    &__player {
-        display: block;
-        width: 100%;
-        max-width: 48rem;
-        height: 30vw;
-        max-height: 15rem;
-        min-height: 6rem;
     }
 
 }
