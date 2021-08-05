@@ -62,7 +62,7 @@ function generateShowDetail(showDetail) {
     let showArticle = createElement(
         'article',
         showsList,
-        {classList: ['shows__list']}
+        {classList: ['shows__item']}
     );
 
 
@@ -71,7 +71,7 @@ function generateShowDetail(showDetail) {
         let container = createElement(
             'div',
             showArticle,
-            {classList: [`shows__${detail}-container`]}
+            {classList: [`shows__ctx-container`]}
         )
 
         // create labels

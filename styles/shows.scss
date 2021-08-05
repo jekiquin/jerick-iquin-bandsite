@@ -15,13 +15,23 @@
 
     p {
         padding-top: map-get($pad , "default")/4;
+        font-weight: 600;
     }
 
     &__list {
         width: 100%;
     }
 
-    &__header {
+    &__item {
+        padding: map-get($pad, "default") 0;
+        border-bottom: 1px solid $divider-line-color;
+    }
+
+    &__ctx-container {
         padding-bottom: map-get($pad, "default");
+    }
+
+    &__label {
+        color: $labels-color;
     }
 }
