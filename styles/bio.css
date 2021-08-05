@@ -208,6 +208,18 @@ footer .copyright {
   }
 }
 
+.cta-button {
+  background-color: #323232;
+  color: white;
+  height: 4rem;
+  width: 100%;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
+  border-radius: 0.4rem;
+  margin: 1.6rem 0;
+  cursor: pointer;
+}
+
 .nav--main .nav__header {
   padding-top: 1.6rem;
 }

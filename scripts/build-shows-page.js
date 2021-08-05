@@ -65,6 +65,7 @@ function generateShowDetail(showDetail) {
         {classList: ['shows__list']}
     );
 
+
     for (detail in showDetail) {
         // create container tag
         let container = createElement(
@@ -101,16 +102,21 @@ function generateShowDetail(showDetail) {
     }
 
     let buttonAttribute = {
-        classList: ['shows__cta'],
+        classList: ['cta-button', 'cta-button--shows'],
         innerText: 'BUY TICKETS'
     }
 
     // create button
-    createElement(
+    let cta = createElement(
         'button',
         showArticle,
         buttonAttribute
-    )
+    );
+    
+    cta.addEventListener('click', () => {
+        console.log(`Venue: ${showDetail.venue}, ${showDetail.location}`);
+    })
+
 };
 
 

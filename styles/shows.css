@@ -1,10 +1,10 @@
-.hero__ctx, .nav__list, .hero--shows .hero__ctx, .nav, footer .contacts {
+.hero__ctx, .nav__list, .shows, .hero--shows .hero__ctx, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hero--shows .hero__ctx, .nav, footer .contacts {
+.shows, .hero--shows .hero__ctx, .nav, footer .contacts {
   flex-direction: column;
 }
 
@@ -208,6 +208,18 @@ footer .copyright {
   }
 }
 
+.cta-button {
+  background-color: #323232;
+  color: white;
+  height: 4rem;
+  width: 100%;
+  padding-left: 3.2rem;
+  padding-right: 3.2rem;
+  border-radius: 0.4rem;
+  margin: 1.6rem 0;
+  cursor: pointer;
+}
+
 .nav--main .nav__header {
   padding-top: 1.6rem;
 }
@@ -369,4 +381,19 @@ footer .copyright {
   justify-content: flex-start;
   position: relative;
   z-index: 2;
+}
+
+.shows {
+  align-items: flex-start;
+  margin: 0;
+  padding: 1.6rem;
+}
+.shows p {
+  padding-top: 0.4rem;
+}
+.shows__list {
+  width: 100%;
+}
+.shows__header {
+  padding-bottom: 1.6rem;
 }/*# sourceMappingURL=shows.css.map */

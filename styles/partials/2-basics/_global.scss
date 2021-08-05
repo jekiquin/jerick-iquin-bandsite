@@ -94,3 +94,14 @@ footer {
     }
 
 }
+
+.cta-button {
+    @include set-color-theme($primary-dark-bg);
+    height: 4rem;
+    width: 100%;
+    padding-left: 3.2rem;
+    padding-right: 3.2rem;
+    border-radius: .4rem;
+    margin: map-get($pad, "default") 0;
+    cursor: pointer;
+}
