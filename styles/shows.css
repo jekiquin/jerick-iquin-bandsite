@@ -387,10 +387,6 @@ footer .copyright {
   margin: 0;
   padding: 1.6rem;
 }
-.shows p {
-  padding-top: 0.4rem;
-  font-weight: 600;
-}
 .shows__list {
   width: 100%;
 }
@@ -401,6 +397,12 @@ footer .copyright {
 .shows__ctx-container {
   padding-bottom: 1.6rem;
 }
-.shows__label {
+.shows__detail {
+  font-weight: 600;
+}
+.shows__detail--label {
   color: #AFAFAF;
+}
+.shows__detail--date {
+  font-weight: 700;
 }/*# sourceMappingURL=shows.css.map */

@@ -79,13 +79,13 @@ function generateShowDetail(showDetail) {
             'p',
             container,
             {
-                classList: ['shows__label'],
+                classList: ['shows__detail', 'shows__detail--label' ],
                 innerText: detail.toUpperCase()
             }
         );
 
         let detailAttribute = {
-            classList: [`shows__${detail}`],
+            classList: ['shows__detail', `shows__detail--${detail}`],
         }
         if (detail === 'date') {
             detailAttribute.innerText = showDetail[detail].toDateString();

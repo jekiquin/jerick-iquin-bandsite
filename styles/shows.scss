@@ -13,11 +13,6 @@
     margin: 0;
     padding: map-get($pad, "default");
 
-    p {
-        padding-top: map-get($pad , "default")/4;
-        font-weight: 600;
-    }
-
     &__list {
         width: 100%;
     }
@@ -31,7 +26,15 @@
         padding-bottom: map-get($pad, "default");
     }
 
-    &__label {
-        color: $labels-color;
+    &__detail {
+        font-weight: 600;
+
+        &--label {
+            color: $labels-color;
+        }
+
+        &--date {
+            font-weight: 700;
+        }
     }
 }
