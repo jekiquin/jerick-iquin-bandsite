@@ -17,8 +17,8 @@
         width: 100%;
 
         @include set-media(map-get($screen, "desktop")) {
-            margin-top: map-get($pad, "tablet");
-            margin-left: map-get($pad, "tablet") * 4;
+            margin-top: map-get($pad-heading, "tablet");
+            margin-left: map-get($pad-heading, "tablet") * 2;
         }
     }
 
