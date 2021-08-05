@@ -224,6 +224,9 @@ footer .copyright {
     align-self: flex-end;
   }
 }
+.cta-button:hover {
+  background-color: black;
+}
 
 .nav--main .nav__header {
   padding-top: 1.6rem;
