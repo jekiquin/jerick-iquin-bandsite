@@ -103,4 +103,11 @@ footer {
     padding-right: 3.2rem;
     border-radius: .4rem;
     cursor: pointer;
+
+    &--shows {
+        @include set-media(map-get($screen, "tablet")) {
+            width: 25%;
+            align-self: flex-end;
+        }
+    }
 }

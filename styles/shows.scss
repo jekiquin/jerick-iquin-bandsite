@@ -15,26 +15,70 @@
 
     &__list {
         width: 100%;
+
+        @include set-media(map-get($screen, "desktop")) {
+            margin-top: map-get($pad, "tablet");
+            margin-left: map-get($pad, "tablet") * 4;
+        }
     }
 
     &__item {
+        @extend %flex--column;
+        align-items: flex-start;
         padding: map-get($pad, "default") 0;
         border-bottom: 1px solid $divider-line-color;
+
+        @include set-media(map-get($screen, "tablet")) {
+            flex-direction: row;
+            justify-content: stretch;
+            align-items: center;
+            width: 100%;
+        }
     }
 
     &__ctx-container {
         padding-bottom: map-get($pad, "default");
+
+        @include set-media(map-get($screen, "tablet")) {
+            padding-bottom: 0;
+            width: 25%;
+        }
     }
 
     &__detail {
         font-weight: 600;
-
+        
         &--label {
             color: $labels-color;
+
+            @include set-media(map-get($screen, "tablet")) {
+                padding-bottom: map-get($pad, "tablet");
+                padding-top: map-get($pad, "screen");
+            }
+        }
+
+        &--hidden {
+            @include set-media(map-get($screen, "tablet")) {
+                display: none;
+            }
         }
 
         &--date {
             font-weight: 700;
         }
+
+    }
+
+    @include set-media(map-get($screen, "tablet")) {
+        padding-left: map-get($pad, "tablet");
+        padding-right: map-get($pad, "tablet");
+    }
+
+    @include set-media(map-get($screen, "desktop")) {
+        flex-direction: row;
+        align-items: flex-start;
+        padding-left: 0;
+        padding-right: 0;
+        margin: 0 auto;
     }
 }

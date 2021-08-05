@@ -218,6 +218,12 @@ footer .copyright {
   border-radius: 0.4rem;
   cursor: pointer;
 }
+@media (min-width: 768px) {
+  .cta-button--shows {
+    width: 25%;
+    align-self: flex-end;
+  }
+}
 
 .nav--main .nav__header {
   padding-top: 1.6rem;

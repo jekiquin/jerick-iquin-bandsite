@@ -79,7 +79,7 @@ function generateShowDetail(showDetail) {
             'p',
             container,
             {
-                classList: ['shows__detail', 'shows__detail--label' ],
+                classList: ['shows__detail', 'shows__detail--label'],
                 innerText: detail.toUpperCase()
             }
         );
@@ -117,12 +117,19 @@ function generateShowDetail(showDetail) {
         console.log(`Venue: ${showDetail.venue}, ${showDetail.location}`);
     })
 
+    return showArticle;
 };
 
 
 function generateShowsList(dataList) {
-    dataList.forEach(data => {
-        generateShowDetail(data)
+    dataList.forEach((data, idx) => {
+        let showsCard = generateShowDetail(data);
+        if (idx) {
+            let labels = showsCard.querySelectorAll('.shows__detail--label');
+            for (label of labels) {
+                label.classList.add('shows__detail--hidden');
+            }
+        }
     })
 };
 
