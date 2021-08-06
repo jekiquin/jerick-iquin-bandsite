@@ -1,3 +1,5 @@
+import { createElement, capitalize } from './peripherals.js';
+
 // query selectors
 const showsList = document.querySelector('.shows__list');
 
@@ -36,27 +38,6 @@ const showsData = [
     }
 ];
 
-function createElement(element, parent='document', elementAttributes={}) {
-    const elementObj = document.createElement(element);
-    for (attribute in elementAttributes) {
-        if (attribute === 'classList') {
-            let listOfClasses = elementAttributes[attribute];
-            listOfClasses.forEach(classId => {
-                elementObj[attribute].add(classId);
-            });
-        } else {
-            elementObj[attribute] = elementAttributes[attribute];
-        }
-    }
-    parent.appendChild(elementObj);
-    return elementObj;
-};
-
-function capitalize(string) {
-    return string[0].toUpperCase() + string.slice(1);
-}
-
-
 function generateShowDetail(showDetail) {    
     // create article tag
     let showArticle = createElement(
@@ -66,7 +47,7 @@ function generateShowDetail(showDetail) {
     );
 
 
-    for (detail in showDetail) {
+    for (let detail in showDetail) {
         // create container tag
         let container = createElement(
             'div',
@@ -126,7 +107,7 @@ function generateShowsList(dataList) {
         let showsCard = generateShowDetail(data);
         if (idx) {
             let labels = showsCard.querySelectorAll('.shows__detail--label');
-            for (label of labels) {
+            for (let label of labels) {
                 label.classList.add('shows__detail--hidden');
             }
         }
