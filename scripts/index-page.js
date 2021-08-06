@@ -2,13 +2,16 @@
 import { createElement, capitalize } from './peripherals.js';
 
 const commentsSection = document.querySelector('.comments__limiting-container');
-const commmentSubmit = document.querySelector('.comment__form-submit');
+const commentForm = document.querySelector('.comments__form');
+
+const postContainer = document.createElement('div');
+commentsSection.appendChild(postContainer);
 
 const defaultComments = [
     {
-        name: 'Connor Walton',
-        date: new Date('February 17, 2021'),
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
+        name: 'Miles Acosta',
+        date: new Date('December 20, 2020'),
+        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
         image: null
     },
     {
@@ -18,9 +21,9 @@ const defaultComments = [
         image: null
     },
     {
-        name: 'Miles Acosta',
-        date: new Date('December 20, 2020'),
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+        name: 'Connor Walton',
+        date: new Date('February 17, 2021'),
+        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
         image: null
     }
 ];
@@ -97,10 +100,11 @@ function generateCommentProfilePic(commentObj, cardContainer) {
 function displayComment(commentObj) {
     const cardContainer = createElement(
         'article',
-        commentsSection,
+        postContainer,
         {
             classList: ['comments__card']
-        }
+        },
+        false
     );
 
     generateCommentProfilePic(commentObj, cardContainer);
@@ -114,8 +118,21 @@ function initializePostedComments() {
     })
 }
 
-
-
 // on document load
 initializePostedComments();
+
+// addeventlisteners
+commentForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    console.log(event.target.name.value);
+    console.log(event.target.comment.value);
+    displayComment(
+        {
+            name: event.target.name.value,
+            date: new Date(Date.now()),
+            comment: event.target.comment.value
+        }
+    );
+    event.target.reset();
+})
 

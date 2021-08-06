@@ -587,6 +587,9 @@ footer .copyright {
 .comments__card-name-date {
   justify-content: space-between;
 }
+.comments__card-ctx {
+  flex-grow: 1;
+}
 .comments__card-name {
   font-weight: 700;
 }

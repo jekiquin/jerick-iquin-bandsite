@@ -1,4 +1,4 @@
-export function createElement(element, parent='document', elementAttributes={}) {
+export function createElement(element, parent='document', elementAttributes={}, append = true) {
     const elementObj = document.createElement(element);
     for (let attribute in elementAttributes) {
         if (attribute === 'classList') {
@@ -10,7 +10,17 @@ export function createElement(element, parent='document', elementAttributes={}) 
             elementObj[attribute] = elementAttributes[attribute];
         }
     }
-    parent.appendChild(elementObj);
+    if (append) {
+        parent.appendChild(elementObj);
+    } else {
+        if (parent.firstChild) {
+            parent.insertBefore(elementObj, parent.firstChild);
+        } else {
+            parent.appendChild(elementObj);
+        }
+        
+    }
+    
     return elementObj;
 };
 
