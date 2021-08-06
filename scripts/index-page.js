@@ -3,6 +3,7 @@ import { createElement, capitalize } from './peripherals.js';
 
 const commentsSection = document.querySelector('.comments__limiting-container');
 const commentForm = document.querySelector('.comments__form');
+const profileImage = document.querySelector('.comments__form-profile');
 
 const postContainer = document.createElement('div');
 commentsSection.appendChild(postContainer);
@@ -130,7 +131,8 @@ commentForm.addEventListener('submit', (event) => {
         {
             name: event.target.name.value,
             date: new Date(Date.now()),
-            comment: event.target.comment.value
+            comment: event.target.comment.value,
+            image: profileImage.src
         }
     );
     event.target.reset();
