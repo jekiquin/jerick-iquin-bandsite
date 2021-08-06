@@ -186,7 +186,7 @@ footer .copyright {
   }
 }
 
-.limiting-container {
+.limiting-container, .comments__limiting-container {
   max-width: 1170px;
   margin-right: 1.6rem;
   margin-left: 1.6rem;
@@ -196,13 +196,13 @@ footer .copyright {
   margin: 0;
 }
 @media (min-width: 768px) {
-  .limiting-container {
+  .limiting-container, .comments__limiting-container {
     margin-right: 3.6rem;
     margin-left: 3.6rem;
   }
 }
 @media (min-width: 1280px) {
-  .limiting-container {
+  .limiting-container, .comments__limiting-container {
     margin-right: auto;
     margin-left: auto;
   }

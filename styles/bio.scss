@@ -127,3 +127,60 @@
         padding: 0 0 map-get($pad, "tablet");
     }
 }
+
+
+.comments {
+
+    &__limiting-container {
+        @extend .limiting-container;
+    }
+
+    &__form-container {
+        @extend %flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding-top: map-get($pad, "default");
+        padding-bottom: map-get($pad, "default");
+        width: 100%;
+        border-bottom: 1px solid $divider-line-color;
+    }
+
+    &__form {
+        @extend %flex--column;
+        align-items: flex-start;
+        width: 100%;
+        border-radius: .4rem;
+        
+
+        &-profile {
+            object-fit: cover;
+            width: 3.6rem;
+            height: 3.6rem;
+            border-radius: 50%;
+            background-color: $profile-image-bg;
+            margin-right: map-get($pad, "default");
+            margin-top: map-get($pad, "default");
+        }
+
+        &-input{
+            height: $input-height;
+            width: 100%;
+            margin-top: .4rem;
+            margin-bottom: 1.2rem;
+            padding: 1.2rem;
+
+            &--textarea {
+                height:  $input-height * 2.5;
+            }
+        }
+
+        &-submit {
+            @extend .cta-button;
+        }
+    }
+
+
+    &__card-image {
+        @extend .comments__form-profile;
+    }
+}

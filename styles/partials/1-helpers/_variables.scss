@@ -6,11 +6,16 @@ $primary-light-bg: white;
 $active-cta-color: white;
 $inactive-cta-color: #AFAFAF;       //silver
 $inactive-link: #E1E1E1;       //mercury
-$labels-color: #AFAFAF;
+$labels-color: #AFAFAF;             //silver
 
 $cta-hover-bg: black;               //bandsite-darkblack
 $divider-line-color: #E1E1E1;       //mercury
 $alternative-light-bg: #FAFAFA;     //alabaster
+$profile-image-bg: #E1E1E1;       //mercury
+
+// input
+$input-height: 3.6rem;
+
 
 //padding
 $pad: (
@@ -21,6 +26,11 @@ $pad: (
 $pad-heading: (
     "default": 2.4rem,
     "tablet": 4.8rem
+);
+
+$pad-input: (
+    "default": 1.2rem,
+    "tablet": 1.6rem
 );
 
 //breakpoints

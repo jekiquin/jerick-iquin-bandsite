@@ -86,14 +86,14 @@ function generateCommentProfilePic(commentObj, cardContainer) {
             'div',
             cardContainer,
             {
-                classList: ['comments__card-image', 'comments__card-image--blank']
+                classList: ['comments__card-image']
             }
         )
     }
 
 }
 
-function generateCommentCard(commentObj) {
+function displayComment(commentObj) {
     const cardContainer = createElement(
         'article',
         commentsSection,
@@ -109,7 +109,7 @@ function generateCommentCard(commentObj) {
 
 function initializePostedComments() {
     defaultComments.forEach(post => {
-        generateCommentCard(post);
+        displayComment(post);
     })
 }
 
