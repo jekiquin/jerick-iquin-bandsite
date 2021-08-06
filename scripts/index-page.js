@@ -2,6 +2,7 @@
 import { createElement, capitalize } from './peripherals.js';
 
 const commentsSection = document.querySelector('.comments__limiting-container');
+const commmentSubmit = document.querySelector('.comment__form-submit');
 
 const defaultComments = [
     {

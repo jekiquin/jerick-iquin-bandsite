@@ -143,6 +143,7 @@
         padding-bottom: map-get($pad, "default");
         width: 100%;
         border-bottom: 1px solid $divider-line-color;
+        @extend %comments-container;
     }
 
     &__form {
@@ -153,13 +154,7 @@
         
 
         &-profile {
-            object-fit: cover;
-            width: 3.6rem;
-            height: 3.6rem;
-            border-radius: 50%;
-            background-color: $profile-image-bg;
-            margin-right: map-get($pad, "default");
-            margin-top: map-get($pad, "default");
+            @extend %profile-img;
         }
 
         &-input{
@@ -176,11 +171,48 @@
 
         &-submit {
             @extend .cta-button;
+
+            @include set-media(map-get($screen, "tablet")) {
+                width: 15rem;
+                align-self: flex-end;
+            }
         }
     }
 
+    &__card {
+        @extend %comments-container;
+        @extend %flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding-top: map-get($pad, "default");
+        padding-bottom: map-get($pad, "default");
+        border-bottom: 1px solid $divider-line-color;
 
-    &__card-image {
-        @extend .comments__form-profile;
+        &:last-child {
+            margin-bottom: map-get($pad, "default");
+        }
+
+        &-image {
+            @extend %profile-img;
+        }
+
+        &-name-date {
+            @extend %flex;
+            justify-content: space-between;
+        }
+
+        &-name {
+            font-weight: 700;
+        }
+
+        &-text {
+            margin-top: map-get($pad, "default");
+            font-weight: 600;
+        }
+
+        @include set-media(map-get($screen, "tablet")) {
+            padding-top: map-get($pad, "tablet");
+            padding-bottom: map-get($pad, "tablet");
+        }
     }
 }

@@ -1,4 +1,4 @@
-.comments__form-container, .hero__ctx, .nav__list, .band .info, .gallery, .gallery__container, .comments__form, .hero--shows .hero__ctx, .nav, footer .contacts {
+.comments__form-container, .comments__card, .comments__card-name-date, .hero__ctx, .nav__list, .band .info, .gallery, .gallery__container, .comments__form, .hero--shows .hero__ctx, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,6 +23,32 @@ h1, h2 {
   font-size: 2.4rem;
   line-height: 3.2rem;
   font-weight: 700;
+}
+
+.comments__form-container, .comments__card {
+  max-width: 64rem;
+}
+@media (min-width: 768px) {
+  .comments__form-container, .comments__card {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.comments__form-profile, .comments__card-image {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  background-color: #E1E1E1;
+  margin-right: 1.6rem;
+}
+@media (min-width: 768px) {
+  .comments__form-profile, .comments__card-image {
+    width: 4.8rem;
+    height: 4.8rem;
+  }
 }
 
 html {
@@ -162,7 +188,7 @@ footer .heading {
   footer .heading {
     position: absolute;
     top: 0;
-    right: 0;
+    right: 3.6rem;
   }
 }
 footer .copyright {
@@ -188,8 +214,8 @@ footer .copyright {
 
 .limiting-container, .comments__limiting-container {
   max-width: 1170px;
-  margin-right: 1.6rem;
-  margin-left: 1.6rem;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
   position: relative;
 }
 .limiting-container--header {
@@ -197,12 +223,14 @@ footer .copyright {
 }
 @media (min-width: 768px) {
   .limiting-container, .comments__limiting-container {
-    margin-right: 3.6rem;
-    margin-left: 3.6rem;
+    padding-right: 3.6rem;
+    padding-left: 3.6rem;
   }
 }
 @media (min-width: 1280px) {
   .limiting-container, .comments__limiting-container {
+    padding-right: 0;
+    padding-left: 0;
     margin-right: auto;
     margin-left: auto;
   }
@@ -530,16 +558,6 @@ footer .copyright {
   width: 100%;
   border-radius: 0.4rem;
 }
-.comments__form-profile, .comments__card-image {
-  -o-object-fit: cover;
-     object-fit: cover;
-  width: 3.6rem;
-  height: 3.6rem;
-  border-radius: 50%;
-  background-color: #E1E1E1;
-  margin-right: 1.6rem;
-  margin-top: 1.6rem;
-}
 .comments__form-input {
   height: 3.6rem;
   width: 100%;
@@ -549,4 +567,36 @@ footer .copyright {
 }
 .comments__form-input--textarea {
   height: 9rem;
+}
+@media (min-width: 768px) {
+  .comments__form-submit {
+    width: 15rem;
+    align-self: flex-end;
+  }
+}
+.comments__card {
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 1.6rem;
+  padding-bottom: 1.6rem;
+  border-bottom: 1px solid #E1E1E1;
+}
+.comments__card:last-child {
+  margin-bottom: 1.6rem;
+}
+.comments__card-name-date {
+  justify-content: space-between;
+}
+.comments__card-name {
+  font-weight: 700;
+}
+.comments__card-text {
+  margin-top: 1.6rem;
+  font-weight: 600;
+}
+@media (min-width: 768px) {
+  .comments__card {
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+  }
 }/*# sourceMappingURL=bio.css.map */

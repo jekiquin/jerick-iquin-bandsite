@@ -45,7 +45,7 @@ footer {
         @include set-media(map-get($screen, "tablet")) {
             position: absolute;
             top: 0;
-            right: 0;
+            right: 3.6rem;
         }
 
     }
@@ -75,8 +75,8 @@ footer {
 
 .limiting-container {
     max-width: $max-width-container;
-    margin-right: map-get($pad, "default");
-    margin-left:map-get($pad, "default");
+    padding-right: map-get($pad, "default");
+    padding-left:map-get($pad, "default");
     position: relative;
 
     &--header {
@@ -84,11 +84,13 @@ footer {
     }
 
     @include set-media(map-get($screen, "tablet")) {
-        margin-right: map-get($pad, "tablet");
-        margin-left:map-get($pad, "tablet");
+        padding-right: map-get($pad, "tablet");
+        padding-left:map-get($pad, "tablet");
     }
 
     @include set-media(map-get($screen, "desktop")) {
+        padding-right: 0;
+        padding-left:0;
         margin-right: auto;
         margin-left: auto;
     }
