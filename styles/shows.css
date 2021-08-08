@@ -25,14 +25,14 @@ h1, h2 {
   font-weight: 700;
 }
 
-.hero__ctx, .limiting-container, .comments__limiting-container {
+.shows, .hero__ctx, .limiting-container, .comments__limiting-container {
   max-width: 1170px;
   padding-right: 1.6rem;
   padding-left: 1.6rem;
   position: relative;
 }
 @media (min-width: 768px) {
-  .hero__ctx, .limiting-container, .comments__limiting-container {
+  .shows, .hero__ctx, .limiting-container, .comments__limiting-container {
     padding-right: 3.6rem;
     padding-left: 3.6rem;
     margin-right: auto;
@@ -40,7 +40,7 @@ h1, h2 {
   }
 }
 @media (min-width: 1280px) {
-  .hero__ctx, .limiting-container, .comments__limiting-container {
+  .shows, .hero__ctx, .limiting-container, .comments__limiting-container {
     padding-right: 0;
     padding-left: 0;
     margin-right: auto;
@@ -413,8 +413,6 @@ footer .copyright {
 
 .shows {
   align-items: flex-start;
-  margin: 0;
-  padding: 1.6rem;
 }
 .shows__list {
   width: 100%;

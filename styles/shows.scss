@@ -9,9 +9,8 @@
 // shows page
 .shows {
     @extend %flex--column;
+    @extend %limiting-container;
     align-items: flex-start;
-    margin: 0;
-    padding: map-get($pad, "default");
 
     &__list {
         width: 100%;
