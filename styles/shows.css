@@ -48,11 +48,11 @@ h1, h2 {
   }
 }
 
-.nav__header {
+.shows__header, .nav__header {
   padding-top: 2.4rem;
 }
 @media (min-width: 768px) {
-  .nav__header {
+  .shows__header, .nav__header {
     padding-top: 4.8rem;
   }
 }

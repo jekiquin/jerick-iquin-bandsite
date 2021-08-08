@@ -12,6 +12,10 @@
     @extend %limiting-container;
     align-items: flex-start;
 
+    &__header {
+        @extend %headline;
+    }
+
     &__list {
         width: 100%;
 

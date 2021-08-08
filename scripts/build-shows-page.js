@@ -107,7 +107,7 @@ function generateShowsList(dataList) {
         'h2',
         showsContainer,
         {
-            classList: ['shows__header', 'headline'],
+            classList: ['shows__header'],
             innerText: 'Shows'
         }
     );
