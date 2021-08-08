@@ -50,6 +50,7 @@
     border-radius: 50%;
     background-color: $profile-image-bg;
     margin-right: map-get($pad, "default");
+    flex-shrink: 0;
 
     @include set-media(map-get($screen, "tablet")) {
         width: 4.8rem;

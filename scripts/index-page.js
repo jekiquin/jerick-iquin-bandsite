@@ -38,7 +38,7 @@ const commentsList = [
 ];
 
 function generateCommentCtx(commentObj, cardContainer) {
-    const ctxCOntainer = createElement(
+    const ctxContainer = createElement(
         'div',
         cardContainer,
         {
@@ -48,7 +48,7 @@ function generateCommentCtx(commentObj, cardContainer) {
 
     const nameDateContainer = createElement(
         'div',
-        ctxCOntainer,
+        ctxContainer,
         {
             classList: ['comments__card-name-date']
         }
@@ -74,12 +74,14 @@ function generateCommentCtx(commentObj, cardContainer) {
 
     createElement(
         'p',
-        ctxCOntainer,
+        ctxContainer,
         {
             classList: ['comments__card-text'],
             innerText: commentObj.comment
         }
     );
+
+    generateTimeDiff(commentObj, ctxContainer);
 
 }
 
@@ -106,6 +108,48 @@ function generateCommentProfilePic(commentObj, cardContainer) {
 
 }
 
+function generateTimeDiffMessage(postedTime) {
+    const MILLISECONDS_CONVERTER = {
+        year: 1000*60*60*24*30*12,
+        month: 1000*60*60*24*30,
+        day: 1000*60*60*24,
+        hour: 1000*60*60,
+        minute: 1000*60,
+    };
+
+    const timeNow = new Date(Date.now());
+    const timeDiff = timeNow.getTime() - postedTime.getTime();
+
+    let timeMessage = 'Posted just now.';
+    for (let dateKey in MILLISECONDS_CONVERTER) {
+        const timeConvertFloor = Math.floor(timeDiff / MILLISECONDS_CONVERTER[dateKey]);
+        const timeConvertRound = Math.round(timeDiff / MILLISECONDS_CONVERTER[dateKey]);
+        if (timeConvertFloor) {
+            timeMessage = `Posted ${timeConvertRound} `;
+            timeMessage += timeConvertRound > 1 ? `${dateKey}s ago` : `${dateKey} ago.`;
+            break;
+        }
+    }
+    return(timeMessage);
+}
+
+function generateTimeDiff(commentObj, cardContainer){
+    const timeMessage = generateTimeDiffMessage(commentObj.date);
+
+    createElement(
+        'p',
+        cardContainer,
+        {
+            classList: ['comments__card-date', 'comments__card-date--diff'],
+            innerText: timeMessage
+        }
+    )
+
+    
+    
+    
+}
+
 function displayComment(commentObj) {
     const cardContainer = createElement(
         'article',
@@ -118,7 +162,6 @@ function displayComment(commentObj) {
 
     generateCommentProfilePic(commentObj, cardContainer);
     generateCommentCtx(commentObj, cardContainer);
-
 }
 
 function postAllComments() {
@@ -142,20 +185,15 @@ function updateCommentsList(newCommentObj) {
     })
 };
 
-function removeChildNodes(parent) {
-    while(parent.firstChild) {
-        parent.removeChild(parent.firstChild);
-    }
-}
-
-
 /* ----- event listener ------ */
+// input field blur event listener
 formInputs.forEach(formInput => {
     formInput.addEventListener('blur', (event) => {
         inputBlurEventHandler(event.target);
     })
 });
 
+// form event listener
 commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -180,9 +218,8 @@ commentForm.addEventListener('submit', (event) => {
     };
 
     updateCommentsList(commentObj);
-    removeChildNodes(postContainer)
+    postContainer.innerHTML = '';       // Deleting all contennts of post container     
     postAllComments();
-    console.log(commentsList);
     event.target.reset();
 })
 
