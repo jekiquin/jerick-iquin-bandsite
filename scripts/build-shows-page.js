@@ -1,8 +1,7 @@
 import { createElement, capitalize } from './peripherals.js';
 
 // query selectors
-const showsList = document.querySelector('.shows__list');
-
+const showsContainer = document.querySelector('.shows');
 
 // showsdata
 const showsData = [
@@ -38,10 +37,18 @@ const showsData = [
     }
 ];
 
-function generateShowDetail(showDetail) {    
-    // create article tag
-    let showArticle = createElement(
-        'article',
+function generateShowDetail(showDetail) { 
+    const showsList = createElement(
+        'ul',
+        showsContainer,
+        {
+            classList: ['shows__list']
+        }
+    );
+    
+    // create list elements tag
+    const showArticle = createElement(
+        'li',
         showsList,
         {classList: ['shows__item']}
     );
@@ -103,6 +110,16 @@ function generateShowDetail(showDetail) {
 
 
 function generateShowsList(dataList) {
+    
+    createElement(
+        'h2',
+        showsContainer,
+        {
+            classList: ['shows__header', 'headline'],
+            innerText: 'Shows'
+        }
+    );
+
     dataList.forEach((data, idx) => {
         let showsCard = generateShowDetail(data);
         if (idx) {
