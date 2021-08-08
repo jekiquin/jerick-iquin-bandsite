@@ -126,7 +126,7 @@ function generateTimeDiffMessage(postedTime) {
         const timeConvertRound = Math.round(timeDiff / MILLISECONDS_CONVERTER[dateKey]);
         if (timeConvertFloor) {
             timeMessage = `Posted ${timeConvertRound} `;
-            timeMessage += timeConvertRound > 1 ? `${dateKey}s ago` : `${dateKey} ago.`;
+            timeMessage += timeConvertRound > 1 ? `${dateKey}s ago.` : `${dateKey} ago.`;
             break;
         }
     }
