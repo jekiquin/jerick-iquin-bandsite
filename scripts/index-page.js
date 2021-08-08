@@ -122,8 +122,6 @@ function initializePostedComments() {
 /* ----- event listener ------ */
 commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(event.target.name.value);
-    console.log(event.target.comment.value);
     const commentObj = {
         name: event.target.name.value,
         date: new Date(Date.now()),

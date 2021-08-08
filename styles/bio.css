@@ -219,7 +219,8 @@ footer .copyright {
   position: relative;
 }
 .limiting-container--header {
-  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 768px) {
   .limiting-container, .comments__limiting-container {
@@ -570,9 +571,17 @@ footer .copyright {
   margin-top: 0.4rem;
   margin-bottom: 1.2rem;
   padding: 1.2rem;
+  border: 1px solid #E1E1E1;
 }
 .comments__form-input--textarea {
   height: 9rem;
+}
+.comments__form-input:focus {
+  border-color: black;
+}
+.comments__form-label {
+  color: #AFAFAF;
+  font-weight: 600;
 }
 @media (min-width: 768px) {
   .comments__form-submit {
@@ -608,8 +617,4 @@ footer .copyright {
     padding-top: 3.6rem;
     padding-bottom: 3.6rem;
   }
-}
-
-.comments__form-input:focus {
-  border-color: red;
 }/*# sourceMappingURL=bio.css.map */

@@ -193,7 +193,8 @@ footer .copyright {
   position: relative;
 }
 .limiting-container--header {
-  margin: 0;
+  padding-left: 0;
+  padding-right: 0;
 }
 @media (min-width: 768px) {
   .limiting-container, .comments__limiting-container {
