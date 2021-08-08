@@ -594,6 +594,7 @@ footer .copyright {
 }
 .comments__form-input--textarea {
   height: 9rem;
+  resize: none;
 }
 .comments__form-input--error {
   border-color: #D22D2D;

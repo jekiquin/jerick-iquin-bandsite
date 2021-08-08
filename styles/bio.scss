@@ -189,6 +189,7 @@
 
             &--textarea {
                 height:  $input-height * 2.5;
+                resize: none;
             }
 
             &--error {
