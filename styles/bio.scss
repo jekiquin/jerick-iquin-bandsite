@@ -14,6 +14,10 @@
         @extend %limiting-container;
     }
 
+    &__heading {
+        @extend %headline;
+    }
+
     &__image {
         width: 100%;
         max-width: $max-width;
@@ -94,6 +98,8 @@
     }
 
     &__heading {
+        @extend %headline;
+
         @include set-media(map-get($screen, "tablet")) {
             margin-left: 1.2rem;
         }
@@ -141,6 +147,10 @@
 
     &__limiting-container {
         @extend .limiting-container;
+    }
+
+    &__heading {
+        @extend %headline;
     }
 
     &__form-container {

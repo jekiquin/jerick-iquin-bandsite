@@ -78,3 +78,11 @@
         margin-left: auto;
     }
 }
+
+%headline {
+    padding-top: map-get($pad-heading, "default");
+
+    @include set-media(map-get($screen, "tablet")) {
+        padding-top: map-get($pad-heading, "tablet");
+    }
+}

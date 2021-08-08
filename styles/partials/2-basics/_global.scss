@@ -65,13 +65,13 @@ footer {
 
 }
 
-.headline {
-    padding-top: map-get($pad-heading, "default");
+// .headline {
+//     padding-top: map-get($pad-heading, "default");
 
-    @include set-media(map-get($screen, "tablet")) {
-        padding-top: map-get($pad-heading, "tablet");
-    }
-}
+//     @include set-media(map-get($screen, "tablet")) {
+//         padding-top: map-get($pad-heading, "tablet");
+//     }
+// }
 
 .limiting-container {
     @extend %limiting-container;

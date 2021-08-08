@@ -75,6 +75,15 @@ h1, h2 {
   }
 }
 
+.about__heading, .gallery__heading, .comments__heading, .nav__header {
+  padding-top: 2.4rem;
+}
+@media (min-width: 768px) {
+  .about__heading, .gallery__heading, .comments__heading, .nav__header {
+    padding-top: 4.8rem;
+  }
+}
+
 html {
   font-family: "Avenir Next";
   font-size: 62.5%;
@@ -224,15 +233,6 @@ footer .copyright {
   }
   footer p, footer a {
     line-height: 2rem;
-  }
-}
-
-.headline {
-  padding-top: 2.4rem;
-}
-@media (min-width: 768px) {
-  .headline {
-    padding-top: 4.8rem;
   }
 }
 

@@ -8,6 +8,10 @@
         @extend %flex;
     }
 
+    &__header {
+        @extend %headline;
+    }
+
     &--main {
 
         #{$nav}__header {
