@@ -82,6 +82,7 @@
     &__ctx {
         @extend %cover;
         @extend %flex;
+        @extend %limiting-container;
         justify-content: flex-start;
         position: relative;
         z-index: 2;

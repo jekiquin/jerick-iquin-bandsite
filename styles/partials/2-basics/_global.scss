@@ -74,26 +74,23 @@ footer {
 }
 
 .limiting-container {
-    max-width: $max-width-container;
-    padding-right: map-get($pad, "default");
-    padding-left:map-get($pad, "default");
-    position: relative;
+    @extend %limiting-container;
 
     &--header {
         padding-left: 0;
         padding-right: 0;
-    }
 
-    @include set-media(map-get($screen, "tablet")) {
-        padding-right: map-get($pad, "tablet");
-        padding-left:map-get($pad, "tablet");
-    }
-
-    @include set-media(map-get($screen, "desktop")) {
-        padding-right: 0;
-        padding-left:0;
-        margin-right: auto;
-        margin-left: auto;
+        @include set-media(map-get($screen, "tablet")) {
+            padding-right: map-get($pad, "tablet");
+            padding-left:map-get($pad, "tablet");
+        }
+    
+        @include set-media(map-get($screen, "desktop")) {
+            padding-right: 0;
+            padding-left:0;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 
 }

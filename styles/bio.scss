@@ -10,6 +10,10 @@
 .about {
     width: 100%;
 
+    &__limiting-container {
+        @extend %limiting-container;
+    }
+
     &__image {
         width: 100%;
         max-width: $max-width;
@@ -85,6 +89,10 @@
     width: 100%;
     background-color: $alternative-light-bg;
     
+    &__limiting-container {
+        @extend %limiting-container;
+    }
+
     &__heading {
         @include set-media(map-get($screen, "tablet")) {
             margin-left: 1.2rem;

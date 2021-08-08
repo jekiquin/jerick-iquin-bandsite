@@ -25,6 +25,29 @@ h1, h2 {
   font-weight: 700;
 }
 
+.hero__ctx, .limiting-container, .comments__limiting-container {
+  max-width: 1170px;
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+  position: relative;
+}
+@media (min-width: 768px) {
+  .hero__ctx, .limiting-container, .comments__limiting-container {
+    padding-right: 3.6rem;
+    padding-left: 3.6rem;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+@media (min-width: 1280px) {
+  .hero__ctx, .limiting-container, .comments__limiting-container {
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+  }
+}
+
 html {
   font-family: "Avenir Next";
   font-size: 62.5%;
@@ -186,24 +209,18 @@ footer .copyright {
   }
 }
 
-.limiting-container, .comments__limiting-container {
-  max-width: 1170px;
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
-  position: relative;
-}
 .limiting-container--header {
   padding-left: 0;
   padding-right: 0;
 }
 @media (min-width: 768px) {
-  .limiting-container, .comments__limiting-container {
+  .limiting-container--header {
     padding-right: 3.6rem;
     padding-left: 3.6rem;
   }
 }
 @media (min-width: 1280px) {
-  .limiting-container, .comments__limiting-container {
+  .limiting-container--header {
     padding-right: 0;
     padding-left: 0;
     margin-right: auto;
