@@ -5,9 +5,17 @@ const commentsSection = document.querySelector('.comments__limiting-container');
 const commentForm = document.querySelector('.comments__form');
 const profileImage = document.querySelector('.comments__form-profile');
 
+// grabbing all the input fields
+const formChildren = commentForm.children;
+const formInputs = Array.prototype.filter.call(formChildren, child => {
+    return (child.classList.contains('comments__form-input'));
+})
+
+
 const postContainer = document.createElement('div');
 commentsSection.appendChild(postContainer);
 
+// data with defaults
 const commentsList = [
     {
         name: 'Miles Acosta',
@@ -113,29 +121,64 @@ function displayComment(commentObj) {
 
 }
 
-function initializePostedComments() {
+function postAllComments() {
     commentsList.forEach(post => {
         displayComment(post);
     })
 }
 
+function inputBlurEventHandler(eventTarget) {
+    if (eventTarget.value.trim() === '') {
+        eventTarget.classList.add('comments__form-input--error');
+    } else {
+        eventTarget.classList.remove('comments__form-input--error');
+    }
+}
+
+function updateCommentsList(newCommentObj) {
+    commentsList.push(newCommentObj);
+    commentsList.sort((comment1, comment2) => {
+        return comment1.date - comment2.date
+    })
+};
+
+function removeChildNodes(parent) {
+    while(parent.firstChild) {
+        parent.removeChild(parent.firstChild);
+    }
+}
+
 /* ----- event listener ------ */
+formInputs.forEach(formInput => {
+    formInput.addEventListener('blur', (event) => {
+        inputBlurEventHandler(event.target);
+    })
+});
+
 commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    const commentObj = {
-        name: event.target.name.value,
-        date: new Date(Date.now()),
-        comment: event.target.comment.value,
-        image: profileImage.src
-    }
-    displayComment(
-        commentObj
-    );
 
-    commentsList.push(commentObj);
+    const inputName = event.target.name.value.trim();
+    const inputComment = event.target.comment.value.trim();
+
+    if (inputName === '' || inputComment === '') {
+        // catch all if the empty 
+        return;
+    }
+
+    const commentObj = {
+        name: inputName,
+        date: new Date(Date.now()),
+        comment: inputComment,
+        image: profileImage.src
+    };
+
+    updateCommentsList(commentObj);
+    removeChildNodes(postContainer)
+    postAllComments();
     console.log(commentsList);
     event.target.reset();
 })
 
 /* ----- Document on load ------ */
-initializePostedComments();
+postAllComments();

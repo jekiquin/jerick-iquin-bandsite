@@ -572,9 +572,13 @@ footer .copyright {
   margin-bottom: 1.2rem;
   padding: 1.2rem;
   border: 1px solid #E1E1E1;
+  border-radius: 0.4rem;
 }
 .comments__form-input--textarea {
   height: 9rem;
+}
+.comments__form-input--error {
+  border-color: #D22D2D;
 }
 .comments__form-input:focus {
   border-color: black;

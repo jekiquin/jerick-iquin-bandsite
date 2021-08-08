@@ -169,9 +169,14 @@
             margin-bottom: 1.2rem;
             padding: 1.2rem;
             border: 1px solid $divider-line-color;
+            border-radius: .4rem;
 
             &--textarea {
                 height:  $input-height * 2.5;
+            }
+
+            &--error {
+                border-color: $input-error-color;
             }
 
             &:focus {
