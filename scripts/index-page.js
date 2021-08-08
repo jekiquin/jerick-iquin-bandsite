@@ -148,6 +148,7 @@ function removeChildNodes(parent) {
     }
 }
 
+
 /* ----- event listener ------ */
 formInputs.forEach(formInput => {
     formInput.addEventListener('blur', (event) => {
@@ -161,8 +162,13 @@ commentForm.addEventListener('submit', (event) => {
     const inputName = event.target.name.value.trim();
     const inputComment = event.target.comment.value.trim();
 
-    if (inputName === '' || inputComment === '') {
-        // catch all if the empty 
+    // first error handling. checking blank inputs
+    if (inputName === '') {
+        inputBlurEventHandler(event.target.name);
+        return;
+    }
+    if (inputComment === ''){
+        inputBlurEventHandler(event.target.name);
         return;
     }
 
