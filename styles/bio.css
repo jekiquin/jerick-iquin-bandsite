@@ -553,6 +553,12 @@ footer .copyright {
   width: 100%;
   border-bottom: 1px solid #E1E1E1;
 }
+@media (min-width: 768px) {
+  .comments__form-container {
+    padding-top: 3.6rem;
+    padding-bottom: 3.6rem;
+  }
+}
 .comments__form {
   align-items: flex-start;
   width: 100%;
@@ -602,4 +608,8 @@ footer .copyright {
     padding-top: 3.6rem;
     padding-bottom: 3.6rem;
   }
+}
+
+.comments__form-input:focus {
+  border-color: red;
 }/*# sourceMappingURL=bio.css.map */

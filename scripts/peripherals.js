@@ -13,11 +13,12 @@ export function createElement(element, parent='document', elementAttributes={}, 
     if (append) {
         parent.appendChild(elementObj);
     } else {
-        if (parent.firstChild) {
-            parent.insertBefore(elementObj, parent.firstChild);
-        } else {
-            parent.appendChild(elementObj);
-        }
+        // if (parent.firstChild) {
+        //     parent.insertBefore(elementObj, parent.firstChild);
+        // } else {
+        //     parent.appendChild(elementObj);
+        // }
+        parent.prepend(elementObj);
         
     }
     

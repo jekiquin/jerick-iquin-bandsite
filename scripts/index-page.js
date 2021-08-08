@@ -8,7 +8,7 @@ const profileImage = document.querySelector('.comments__form-profile');
 const postContainer = document.createElement('div');
 commentsSection.appendChild(postContainer);
 
-const defaultComments = [
+const commentsList = [
     {
         name: 'Miles Acosta',
         date: new Date('December 20, 2020'),
@@ -114,27 +114,30 @@ function displayComment(commentObj) {
 }
 
 function initializePostedComments() {
-    defaultComments.forEach(post => {
+    commentsList.forEach(post => {
         displayComment(post);
     })
 }
 
-// on document load
-initializePostedComments();
-
-// addeventlisteners
+/* ----- event listener ------ */
 commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
     console.log(event.target.name.value);
     console.log(event.target.comment.value);
+    const commentObj = {
+        name: event.target.name.value,
+        date: new Date(Date.now()),
+        comment: event.target.comment.value,
+        image: profileImage.src
+    }
     displayComment(
-        {
-            name: event.target.name.value,
-            date: new Date(Date.now()),
-            comment: event.target.comment.value,
-            image: profileImage.src
-        }
+        commentObj
     );
+
+    commentsList.push(commentObj);
+    console.log(commentsList);
     event.target.reset();
 })
 
+/* ----- Document on load ------ */
+initializePostedComments();

@@ -144,6 +144,11 @@
         width: 100%;
         border-bottom: 1px solid $divider-line-color;
         @extend %comments-container;
+
+        @include set-media(map-get($screen, "tablet")) {
+            padding-top: map-get($pad, "tablet");
+            padding-bottom: map-get($pad, "tablet");
+        }
     }
 
     &__form {
