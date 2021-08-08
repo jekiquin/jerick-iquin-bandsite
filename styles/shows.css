@@ -413,6 +413,7 @@ footer .copyright {
 
 .shows {
   align-items: flex-start;
+  padding-bottom: 1.6rem;
 }
 .shows__list {
   width: 100%;
@@ -468,6 +469,7 @@ footer .copyright {
   .shows {
     padding-left: 3.6rem;
     padding-right: 3.6rem;
+    padding-bottom: 3.6rem;
   }
 }
 @media (min-width: 1280px) {

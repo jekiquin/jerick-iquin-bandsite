@@ -11,6 +11,7 @@
     @extend %flex--column;
     @extend %limiting-container;
     align-items: flex-start;
+    padding-bottom: map-get($pad, "default");
 
     &__header {
         @extend %headline;
@@ -75,6 +76,7 @@
     @include set-media(map-get($screen, "tablet")) {
         padding-left: map-get($pad, "tablet");
         padding-right: map-get($pad, "tablet");
+        padding-bottom: map-get($pad, "tablet");
     }
 
     @include set-media(map-get($screen, "desktop")) {
