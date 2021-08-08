@@ -37,15 +37,7 @@ const showsData = [
     }
 ];
 
-function generateShowDetail(showDetail) { 
-    const showsList = createElement(
-        'ul',
-        showsContainer,
-        {
-            classList: ['shows__list']
-        }
-    );
-    
+function generateShowDetail(showDetail, showsList) { 
     // create list elements tag
     const showArticle = createElement(
         'li',
@@ -120,8 +112,16 @@ function generateShowsList(dataList) {
         }
     );
 
+    const showsList = createElement(
+        'ul',
+        showsContainer,
+        {
+            classList: ['shows__list']
+        }
+    );
+
     dataList.forEach((data, idx) => {
-        let showsCard = generateShowDetail(data);
+        let showsCard = generateShowDetail(data, showsList);
         if (idx) {
             let labels = showsCard.querySelectorAll('.shows__detail--label');
             for (let label of labels) {
