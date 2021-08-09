@@ -156,8 +156,7 @@ function displayComment(commentObj) {
         postContainer,
         {
             classList: ['comments__card']
-        },
-        false
+        }
     );
 
     generateCommentProfilePic(commentObj, cardContainer);
@@ -165,6 +164,9 @@ function displayComment(commentObj) {
 }
 
 function postAllComments() {
+    commentsList.sort((comment1, comment2) => {
+        return comment2.date - comment1.date
+    })
     commentsList.forEach(post => {
         displayComment(post);
     })
@@ -177,13 +179,6 @@ function inputBlurEventHandler(eventTarget) {
         eventTarget.classList.remove('comments__form-input--error');
     }
 }
-
-function updateCommentsList(newCommentObj) {
-    commentsList.push(newCommentObj);
-    commentsList.sort((comment1, comment2) => {
-        return comment1.date - comment2.date
-    })
-};
 
 /* ----- event listener ------ */
 // input field blur event listener
@@ -217,7 +212,7 @@ commentForm.addEventListener('submit', (event) => {
         image: profileImage.src
     };
 
-    updateCommentsList(commentObj);
+    commentsList.push(commentObj);
     while(postContainer.firstChild) {
         postContainer.removeChild(postContainer.firstChild);
     }
