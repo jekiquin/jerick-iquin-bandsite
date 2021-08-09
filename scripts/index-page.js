@@ -218,7 +218,9 @@ commentForm.addEventListener('submit', (event) => {
     };
 
     updateCommentsList(commentObj);
-    postContainer.innerHTML = '';       // Deleting all contennts of post container     
+    while(postContainer.firstChild) {
+        postContainer.removeChild(postContainer.firstChild);
+    }
     postAllComments();
     event.target.reset();
 })
