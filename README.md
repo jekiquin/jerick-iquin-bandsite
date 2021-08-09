@@ -7,3 +7,4 @@
 - Diving Deeper
     * Added photo gallery hover effect
     * Email links open up user mail client to create message
+    
