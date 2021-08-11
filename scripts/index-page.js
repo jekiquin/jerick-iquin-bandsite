@@ -197,9 +197,6 @@ function generateTimeDiff(commentObj, cardContainer){
         }
     )
 
-    
-    
-    
 }
 
 function displayComment(commentObj) {
@@ -215,10 +212,11 @@ function displayComment(commentObj) {
     generateCommentCtx(commentObj, cardContainer);
 }
 
-function postAllComments() {
+function postAllComments(commentsList) {
     // commentsList.sort((comment1, comment2) => {
     //     return comment2.timestamp - comment1.timestamp
     // })
+    console.log(commentsList);
     commentsList.forEach(post => {
         displayComment(post);
     })
@@ -264,11 +262,15 @@ commentForm.addEventListener('submit', (event) => {
         // image: profileImage.src
     };
 
-    // commentsList.push(commentObj);
-    postContainer.innerHTML = '';
-
-    postAllComments();
     event.target.reset();
+    // commentsList.push(commentObj);
+    
+
+    bioPage.postComment(commentObj)
+        .then(() => {
+            postContainer.innerHTML = '';
+            postAllComments(bioPage.allComments);
+        })
 })
 
 /* ----- Document on load ------ */
@@ -276,7 +278,5 @@ const bioPage = new Comments(url);
 
 bioPage.fetchComments()
     .then(() => {
-        commentsList = bioPage.allComments;
-        console.log(commentsList);
-        postAllComments();
+        postAllComments(bioPage.allComments);
     })
