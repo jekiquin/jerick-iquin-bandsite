@@ -26,11 +26,11 @@ class Comments {
     }
 
     get allComments() {
-        const toSort = JSON.parse(JSON.stringify(this._allComments));
-        toSort.sort((comment1, comment2) => {
+        const sorted = JSON.parse(JSON.stringify(this._allComments));
+        sorted.sort((comment1, comment2) => {
             return comment2.timestamp - comment1.timestamp;
         });
-        return toSort;
+        return sorted;
     }
 
     fetchComments() {
@@ -66,28 +66,6 @@ class Comments {
         ) 
     }
 }
-
-// data with defaults
-// const commentsList = [
-//     {
-//         name: 'Miles Acosta',
-//         timestamp: new Date('December 20, 2020'),
-//         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-//         image: null
-//     },
-//     {
-//         name: 'Emilie Beach',
-//         timestamp: new Date('January, 09, 2021'),
-//         comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
-//         image: null
-//     },
-//     {
-//         name: 'Connor Walton',
-//         timestamp: new Date('February 17, 2021'),
-//         comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
-//         image: null
-//     }
-// ];
 
 function generateCommentCtx(commentObj, cardContainer) {
     const ctxContainer = createElement(
@@ -213,9 +191,6 @@ function displayComment(commentObj) {
 }
 
 function postAllComments(commentsList) {
-    // commentsList.sort((comment1, comment2) => {
-    //     return comment2.timestamp - comment1.timestamp
-    // })
     console.log(commentsList);
     commentsList.forEach(post => {
         displayComment(post);
@@ -257,15 +232,11 @@ commentForm.addEventListener('submit', (event) => {
 
     const commentObj = {
         name: inputName,
-        // timestamp: new Date(),
         comment: inputComment,
-        // image: profileImage.src
     };
 
     event.target.reset();
-    // commentsList.push(commentObj);
     
-
     bioPage.postComment(commentObj)
         .then(() => {
             postContainer.innerHTML = '';
