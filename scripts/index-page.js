@@ -196,7 +196,8 @@ function generateButtons(commentObj, cardContainer) {
         buttonsContainer,
         {
             classList: ['comments__card-button', 'comments__card-button--like'],
-            src: './assets/icons/icon-like.svg'
+            src: './assets/icons/icon-like.svg',
+            alt: 'Like!'
         }
     )
 
@@ -216,7 +217,8 @@ function generateButtons(commentObj, cardContainer) {
         buttonsContainer,
         {
             classList: ['comments__card-button', 'comments__card-button--delete'],
-            src: './assets/icons/icon-delete.svg'
+            src: './assets/icons/icon-delete.svg',
+            alt: 'Delete!'
         }
     )
 
