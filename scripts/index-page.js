@@ -19,19 +19,19 @@ commentsSection.appendChild(postContainer);
 const commentsList = [
     {
         name: 'Miles Acosta',
-        date: new Date('December 20, 2020'),
+        timestamp: new Date('December 20, 2020'),
         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
         image: null
     },
     {
         name: 'Emilie Beach',
-        date: new Date('January, 09, 2021'),
+        timestamp: new Date('January, 09, 2021'),
         comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
         image: null
     },
     {
         name: 'Connor Walton',
-        date: new Date('February 17, 2021'),
+        timestamp: new Date('February 17, 2021'),
         comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
         image: null
     }
@@ -68,7 +68,7 @@ function generateCommentCtx(commentObj, cardContainer) {
         nameDateContainer,
         {
             classList: ['comments__card-date'],
-            innerText: commentObj.date.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'})
+            innerText: commentObj.timestamp.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'})
         }
     );
 
@@ -117,7 +117,7 @@ function generateTimeDiffMessage(postedTime) {
         minute: 1000*60,
     };
 
-    const timeNow = new Date(Date.now());
+    const timeNow = new Date();
     const timeDiff = timeNow.getTime() - postedTime.getTime();
 
     let timeMessage = 'Posted just now.';
@@ -134,7 +134,7 @@ function generateTimeDiffMessage(postedTime) {
 }
 
 function generateTimeDiff(commentObj, cardContainer){
-    const timeMessage = generateTimeDiffMessage(commentObj.date);
+    const timeMessage = generateTimeDiffMessage(commentObj.timestamp);
 
     createElement(
         'p',
@@ -165,7 +165,7 @@ function displayComment(commentObj) {
 
 function postAllComments() {
     commentsList.sort((comment1, comment2) => {
-        return comment2.date - comment1.date
+        return comment2.timestamp - comment1.timestamp
     })
     commentsList.forEach(post => {
         displayComment(post);
@@ -207,15 +207,14 @@ commentForm.addEventListener('submit', (event) => {
 
     const commentObj = {
         name: inputName,
-        date: new Date(Date.now()),
+        timestamp: new Date(),
         comment: inputComment,
         image: profileImage.src
     };
 
     commentsList.push(commentObj);
-    while(postContainer.firstChild) {
-        postContainer.removeChild(postContainer.firstChild);
-    }
+    postContainer.innerHTML = '';
+
     postAllComments();
     event.target.reset();
 })
