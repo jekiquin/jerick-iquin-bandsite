@@ -1,41 +1,93 @@
 // import peripheral functions
 import { createElement, capitalize } from './peripherals.js';
 
+// api information
+const endpoint = 'https://project-1-api.herokuapp.com/comments';
+const apiKey = 'ea5744a6-ad19-4c05-b800-9fe8ec7ba912';
+const url = `${endpoint}?api_key=${apiKey}`;
+
+// comments list declaration
+let commentsList = [];
+
 const commentsSection = document.querySelector('.comments__limiting-container');
 const commentForm = document.querySelector('.comments__form');
 const profileImage = document.querySelector('.comments__form-profile');
 
-// grabbing all the input fields
-const formChildren = commentForm.children;
-const formInputs = Array.prototype.filter.call(formChildren, child => {
-    return (child.classList.contains('comments__form-input'));
-})
-
+// grabbing all the input fields for blur even listener
+const formInputs = document.querySelectorAll('.comments__form-input')
 
 const postContainer = document.createElement('div');
 commentsSection.appendChild(postContainer);
 
-// data with defaults
-const commentsList = [
-    {
-        name: 'Miles Acosta',
-        timestamp: new Date('December 20, 2020'),
-        comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
-        image: null
-    },
-    {
-        name: 'Emilie Beach',
-        timestamp: new Date('January, 09, 2021'),
-        comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
-        image: null
-    },
-    {
-        name: 'Connor Walton',
-        timestamp: new Date('February 17, 2021'),
-        comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
-        image: null
+class Comments {
+    constructor(url) {
+        this._allComments = [];
+        this._endPoint = url;
     }
-];
+
+    get allComments() {
+        const toSort = JSON.parse(JSON.stringify(this._allComments));
+        toSort.sort((comment1, comment2) => {
+            return comment2.timestamp - comment1.timestamp;
+        });
+        return toSort;
+    }
+
+    fetchComments() {
+        const getConfig = {
+            method: "GET",
+            url: this._endPoint,
+        }
+        return (
+            axios(getConfig)
+                .then((res) => {
+                    this._allComments = res.data;
+            })
+        )
+    }
+
+    postComment(commentObj) {
+        const postConfig = {
+            method: "POST",
+            url: this._endPoint,
+            header: {
+                'Content-Type': 'application/json'
+            },
+            data: commentObj
+        }
+        return (
+            axios(postConfig)
+                .then(() => {
+                    return this.fetchComments();
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        ) 
+    }
+}
+
+// data with defaults
+// const commentsList = [
+//     {
+//         name: 'Miles Acosta',
+//         timestamp: new Date('December 20, 2020'),
+//         comment: "I can't stop listening. Every time I hear one of their songs - the vocals - it gives me goosebumps. Shivers straight down my spine. What a beautiful expression of creativity. Can't get enough.",
+//         image: null
+//     },
+//     {
+//         name: 'Emilie Beach',
+//         timestamp: new Date('January, 09, 2021'),
+//         comment: 'I feel blessed to have seen them in person. What a show! They were just perfection. If there was one day of my life I could relive, this would be it. What an incredible day.',
+//         image: null
+//     },
+//     {
+//         name: 'Connor Walton',
+//         timestamp: new Date('February 17, 2021'),
+//         comment: 'This is art. This is inexplicable magic expressed in the purest way, everything that makes up this majestic work deserves reverence. Let us appreciate this for what it is and what it contains.',
+//         image: null
+//     }
+// ];
 
 function generateCommentCtx(commentObj, cardContainer) {
     const ctxContainer = createElement(
@@ -68,7 +120,7 @@ function generateCommentCtx(commentObj, cardContainer) {
         nameDateContainer,
         {
             classList: ['comments__card-date'],
-            innerText: commentObj.timestamp.toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'})
+            innerText: new Date(commentObj.timestamp).toLocaleDateString('en-US', {year: 'numeric', month: '2-digit', day: '2-digit'})
         }
     );
 
@@ -118,7 +170,7 @@ function generateTimeDiffMessage(postedTime) {
     };
 
     const timeNow = new Date();
-    const timeDiff = timeNow.getTime() - postedTime.getTime();
+    const timeDiff = timeNow.getTime() - new Date(postedTime).getTime();
 
     let timeMessage = 'Posted just now.';
     for (let dateKey in MILLISECONDS_CONVERTER) {
@@ -164,9 +216,9 @@ function displayComment(commentObj) {
 }
 
 function postAllComments() {
-    commentsList.sort((comment1, comment2) => {
-        return comment2.timestamp - comment1.timestamp
-    })
+    // commentsList.sort((comment1, comment2) => {
+    //     return comment2.timestamp - comment1.timestamp
+    // })
     commentsList.forEach(post => {
         displayComment(post);
     })
@@ -207,12 +259,12 @@ commentForm.addEventListener('submit', (event) => {
 
     const commentObj = {
         name: inputName,
-        timestamp: new Date(),
+        // timestamp: new Date(),
         comment: inputComment,
-        image: profileImage.src
+        // image: profileImage.src
     };
 
-    commentsList.push(commentObj);
+    // commentsList.push(commentObj);
     postContainer.innerHTML = '';
 
     postAllComments();
@@ -220,4 +272,11 @@ commentForm.addEventListener('submit', (event) => {
 })
 
 /* ----- Document on load ------ */
-postAllComments();
+const bioPage = new Comments(url);
+
+bioPage.fetchComments()
+    .then(() => {
+        commentsList = bioPage.allComments;
+        console.log(commentsList);
+        postAllComments();
+    })
