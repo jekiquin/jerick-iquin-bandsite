@@ -1,10 +1,10 @@
-.hero__ctx, .nav__list, .shows, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
+.hero__ctx, .nav__list, .shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.shows, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
+.shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
   flex-direction: column;
 }
 
@@ -25,14 +25,14 @@ h1, h2 {
   font-weight: 700;
 }
 
-.shows, .hero__ctx, .limiting-container {
+.shows__container, .hero__ctx, .limiting-container {
   max-width: 1170px;
   padding-right: 1.6rem;
   padding-left: 1.6rem;
   position: relative;
 }
 @media (min-width: 768px) {
-  .shows, .hero__ctx, .limiting-container {
+  .shows__container, .hero__ctx, .limiting-container {
     padding-right: 3.6rem;
     padding-left: 3.6rem;
     margin-right: auto;
@@ -40,7 +40,7 @@ h1, h2 {
   }
 }
 @media (min-width: 1280px) {
-  .shows, .hero__ctx, .limiting-container {
+  .shows__container, .hero__ctx, .limiting-container {
     padding-right: 0;
     padding-left: 0;
     margin-right: auto;
@@ -411,9 +411,29 @@ footer .copyright {
   z-index: 2;
 }
 
-.shows {
+.shows__container {
   align-items: flex-start;
   padding-bottom: 1.6rem;
+}
+@media (min-width: 768px) {
+  .shows__container {
+    padding-left: 3.6rem;
+    padding-right: 3.6rem;
+    padding-bottom: 3.6rem;
+  }
+}
+@media (min-width: 1280px) {
+  .shows__container {
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0 auto;
+  }
+}
+.shows__loading {
+  text-align: center;
+  margin-top: 2.4rem;
 }
 .shows__list {
   width: 100%;
@@ -464,20 +484,4 @@ footer .copyright {
 }
 .shows__detail--date {
   font-weight: 700;
-}
-@media (min-width: 768px) {
-  .shows {
-    padding-left: 3.6rem;
-    padding-right: 3.6rem;
-    padding-bottom: 3.6rem;
-  }
-}
-@media (min-width: 1280px) {
-  .shows {
-    flex-direction: row;
-    align-items: flex-start;
-    padding-left: 0;
-    padding-right: 0;
-    margin: 0 auto;
-  }
 }/*# sourceMappingURL=shows.css.map */

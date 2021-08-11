@@ -1,7 +1,38 @@
 import { createElement, capitalize } from './peripherals.js';
 
+// api information
+const endpoint = 'https://project-1-api.herokuapp.com/showdates';
+const apiKey = 'ea5744a6-ad19-4c05-b800-9fe8ec7ba912';
+const url = `${endpoint}?api_key=${apiKey}`;
+
 // query selectors
-const showsContainer = document.querySelector('.shows');
+const showsContainer = document.querySelector('.shows__container');
+
+
+
+class Shows {
+    constructor(url) {
+        this._allShows = [];
+        this._endPoint = url;
+    }
+
+    get allShows() {
+        return this._allShows;
+    }
+
+    fetchShows() {
+        const getConfig = {
+            method: "GET",
+            url: this._endPoint,
+        }
+        return (
+            axios(getConfig)
+                .then((res) => {
+                    this._allShows = res.data;
+            })
+        )
+    }
+}
 
 // showsdata
 const showsData = [
@@ -131,4 +162,11 @@ function generateShowsList(dataList) {
     })
 };
 
-generateShowsList(showsData);
+const showsPage = new Shows(url);
+showsPage.fetchShows()
+    .then(() => {
+        // const loadingMessage = document.querySelector('.shows__list--loading-message');
+        // console.log(loadingMessage);
+        // loadingMessage.remove();
+        generateShowsList(showsData);
+    })

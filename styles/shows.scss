@@ -8,13 +8,36 @@
 
 // shows page
 .shows {
-    @extend %flex--column;
-    @extend %limiting-container;
-    align-items: flex-start;
-    padding-bottom: map-get($pad, "default");
 
+    &__container{
+        @extend %flex--column;
+        @extend %limiting-container;
+        align-items: flex-start;
+        padding-bottom: map-get($pad, "default");
+
+        @include set-media(map-get($screen, "tablet")) {
+            padding-left: map-get($pad, "tablet");
+            padding-right: map-get($pad, "tablet");
+            padding-bottom: map-get($pad, "tablet");
+        }
+    
+        @include set-media(map-get($screen, "desktop")) {
+            flex-direction: row;
+            align-items: flex-start;
+            padding-left: 0;
+            padding-right: 0;
+            margin: 0 auto;
+        }
+    }
+
+ 
     &__header {
         @extend %headline;
+    }
+
+    &__loading {
+        text-align: center;
+        margin-top: map-get($pad-heading, "default");
     }
 
     &__list {
@@ -71,19 +94,5 @@
             font-weight: 700;
         }
 
-    }
-
-    @include set-media(map-get($screen, "tablet")) {
-        padding-left: map-get($pad, "tablet");
-        padding-right: map-get($pad, "tablet");
-        padding-bottom: map-get($pad, "tablet");
-    }
-
-    @include set-media(map-get($screen, "desktop")) {
-        flex-direction: row;
-        align-items: flex-start;
-        padding-left: 0;
-        padding-right: 0;
-        margin: 0 auto;
     }
 }
