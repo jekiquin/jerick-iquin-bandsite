@@ -52,7 +52,6 @@ class Comments {
         return (
             axios(getConfig)
                 .then((res) => {
-                    console.log(`${this._endPoint}?api_key=${this._apiKey}`);
                     this._allComments = res.data;
             })
         )
@@ -295,7 +294,6 @@ function likeEvent(likeButton, id) {
     likeButton.addEventListener('click', event => {
         bioPage.addLike(id)
             .then(() => {
-            console.log(bioPage.allComments);
             renderAllComments(bioPage.allComments);
             })
     })
