@@ -266,6 +266,22 @@
             font-weight: 600;
         }
 
+        &-button-container {
+            @extend %flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: map-get($pad, "default");
+        }
+
+        &-button {
+            cursor: pointer;
+        }
+
+        &-counter {
+            margin-right: 2rem;
+            margin-left: 1rem;
+        }
+
         @include set-media(map-get($screen, "tablet")) {
             padding-top: map-get($pad, "tablet");
             padding-bottom: map-get($pad, "tablet");

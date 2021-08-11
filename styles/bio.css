@@ -1,4 +1,4 @@
-.comments__form-container, .comments__card, .comments__card-name-date, .hero__ctx, .nav__list, .band .info, .gallery, .gallery__container, .comments__form, .hero--shows .hero__ctx, .nav, footer .contacts {
+.comments__form-container, .comments__card, .comments__card-name-date, .comments__card-button-container, .hero__ctx, .nav__list, .band .info, .gallery, .gallery__container, .comments__form, .hero--shows .hero__ctx, .nav, footer .contacts {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -645,6 +645,18 @@ footer .copyright {
 .comments__card-text {
   margin-top: 1.6rem;
   font-weight: 600;
+}
+.comments__card-button-container {
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+.comments__card-button {
+  cursor: pointer;
+}
+.comments__card-counter {
+  margin-right: 2rem;
+  margin-left: 1rem;
 }
 @media (min-width: 768px) {
   .comments__card {

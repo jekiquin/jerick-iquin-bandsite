@@ -123,7 +123,8 @@ function generateCommentCtx(commentObj, cardContainer) {
     );
 
     generateTimeDiff(commentObj, ctxContainer);
-
+    generateButtons(commentObj, ctxContainer)
+    
 }
 
 function generateCommentProfilePic(commentObj, cardContainer) {
@@ -188,6 +189,43 @@ function generateTimeDiff(commentObj, cardContainer){
 
 }
 
+function generateButtons(commentObj, cardContainer) {
+    const buttonsContainer = createElement(
+        'div',
+        cardContainer,
+        {
+            classList: ['comments__card-button-container']
+        }
+    )
+
+    const likeButton = createElement(
+        'img',
+        buttonsContainer,
+        {
+            classList: ['comments__card-button', 'comments__card-button--like'],
+            src: './assets/icons/icon-like.svg'
+        }
+    )
+
+    createElement(
+        'p',
+        buttonsContainer,
+        {
+            classList: ['comments__card-counter'],
+            innerText: commentObj.likes
+        }
+    )
+
+    const deleteButton = createElement(
+        'img',
+        buttonsContainer,
+        {
+            classList: ['comments__card-button', 'comments__card-button--delete'],
+            src: './assets/icons/icon-delete.svg'
+        }
+    )
+}
+
 function displayComment(commentObj) {
     const cardContainer = createElement(
         'article',
@@ -202,7 +240,6 @@ function displayComment(commentObj) {
 }
 
 function postAllComments(commentsList) {
-    console.log(commentsList);
     commentsList.forEach(post => {
         displayComment(post);
     })
