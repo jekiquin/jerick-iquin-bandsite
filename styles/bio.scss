@@ -217,6 +217,11 @@
         }
     }
 
+    &__loading {
+        text-align: center;
+        margin-top: map-get($pad-heading, "default");
+    }
+
     &__card {
         @extend %comments-container;
         @extend %flex;

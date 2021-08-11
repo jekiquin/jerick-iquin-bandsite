@@ -87,10 +87,3 @@
         margin: 0 auto;
     }
 }
-
-.comments {
-
-    &__limiting-container {
-        @extend .limiting-container;
-    }
-}

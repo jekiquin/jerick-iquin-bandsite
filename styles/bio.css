@@ -612,6 +612,10 @@ footer .copyright {
     align-self: flex-end;
   }
 }
+.comments__loading {
+  text-align: center;
+  margin-top: 2.4rem;
+}
 .comments__card {
   align-items: flex-start;
   justify-content: flex-start;

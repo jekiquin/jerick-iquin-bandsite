@@ -6,18 +6,29 @@ const endpoint = 'https://project-1-api.herokuapp.com/comments';
 const apiKey = 'ea5744a6-ad19-4c05-b800-9fe8ec7ba912';
 const url = `${endpoint}?api_key=${apiKey}`;
 
-// comments list declaration
-let commentsList = [];
-
 const commentsSection = document.querySelector('.comments__limiting-container');
 const commentForm = document.querySelector('.comments__form');
-const profileImage = document.querySelector('.comments__form-profile');
 
 // grabbing all the input fields for blur even listener
 const formInputs = document.querySelectorAll('.comments__form-input')
 
-const postContainer = document.createElement('div');
-commentsSection.appendChild(postContainer);
+// conatiner for posted comments
+const postContainer = createElement(
+    'div',
+    commentsSection,
+    {
+        classList: ['comments__posts-container']
+    }
+)
+
+createElement(
+    'h3',
+    postContainer,
+    {
+        innerText: 'Loading all comments...',
+        classList: ['comments__loading']
+    }
+)
 
 class Comments {
     constructor(url) {
@@ -197,6 +208,11 @@ function postAllComments(commentsList) {
     })
 }
 
+function renderAllComments(commentsList) {
+    postContainer.innerHTML = '';
+    postAllComments(commentsList);
+}
+
 function inputBlurEventHandler(eventTarget) {
     if (eventTarget.value.trim() === '') {
         eventTarget.classList.add('comments__form-input--error');
@@ -239,8 +255,7 @@ commentForm.addEventListener('submit', (event) => {
     
     bioPage.postComment(commentObj)
         .then(() => {
-            postContainer.innerHTML = '';
-            postAllComments(bioPage.allComments);
+            renderAllComments(bioPage.allComments);
         })
 })
 
@@ -249,5 +264,5 @@ const bioPage = new Comments(url);
 
 bioPage.fetchComments()
     .then(() => {
-        postAllComments(bioPage.allComments);
+        renderAllComments(bioPage.allComments);
     })
