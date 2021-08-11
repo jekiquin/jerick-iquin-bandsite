@@ -1,10 +1,10 @@
-.hero__ctx, .nav__list, .shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
+.hero__ctx, .nav__list, .shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contact {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contacts {
+.shows__container, .shows__item, .hero--shows .hero__ctx, .nav, footer .contact {
   flex-direction: column;
 }
 
@@ -162,25 +162,25 @@ footer {
   background-color: #323232;
   color: white;
 }
-footer .contacts {
+footer .contact {
   align-items: flex-start;
 }
-footer .contacts .contact {
+footer .contact__info {
   margin-top: 1.6rem;
 }
-footer .contacts .contact > * {
+footer .contact__info > * {
   margin-top: 1.6rem;
-}
-footer .contacts .contact .contact__person {
-  font-weight: 700;
 }
 @media (min-width: 768px) {
-  footer .contacts .contact {
+  footer .contact__info {
     margin: 3.6rem 2.4rem 3.6rem 0;
   }
 }
+footer .contact__person {
+  font-weight: 700;
+}
 @media (min-width: 768px) {
-  footer .contacts {
+  footer .contact {
     flex-direction: row;
     justify-content: flex-start;
   }

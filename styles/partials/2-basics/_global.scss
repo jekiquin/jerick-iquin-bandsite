@@ -8,19 +8,15 @@ header {
 footer {
     @include set-color-theme($primary-dark-bg);
 
-    .contacts {
+    .contact {
         @extend %flex--column;
         align-items: flex-start;
 
-        .contact {
+        &__info {
             margin-top: map-get($pad, "default");
     
             & > * {
                 margin-top: map-get($pad, "default");
-            }
-    
-            .contact__person {
-                font-weight: 700;
             }
 
             @include set-media(map-get($screen, "tablet")) {
@@ -29,6 +25,10 @@ footer {
                         map-get($pad, "tablet")
                         0;
             }
+        }
+
+       &__person {
+            font-weight: 700;
         }
 
         @include set-media(map-get($screen, "tablet")) {
