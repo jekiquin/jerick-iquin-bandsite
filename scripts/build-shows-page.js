@@ -6,9 +6,19 @@ const apiKey = 'ea5744a6-ad19-4c05-b800-9fe8ec7ba912';
 const url = `${endpoint}?api_key=${apiKey}`;
 
 // query selectors
+const showsSection = document.querySelector('.shows');
 const showsContainer = document.querySelector('.shows__container');
 
-
+// loading message 
+const loadingMessage = createElement(
+    'h2',
+    showsSection,
+    {
+        classList: ['shows__loading'],
+        innerText: 'Loading shows...'
+    },
+    false
+)
 
 class Shows {
     constructor(url) {
@@ -17,7 +27,14 @@ class Shows {
     }
 
     get allShows() {
-        return this._allShows;
+        const mappedShows = this._allShows.map(show => {
+            return {
+                date: new Date(Number(show.date)),
+                venue: show.place,
+                location: show.location
+            }
+        })
+        return mappedShows;
     }
 
     fetchShows() {
@@ -33,40 +50,6 @@ class Shows {
         )
     }
 }
-
-// showsdata
-const showsData = [
-    {
-        date: new Date('September 06, 2021'),
-        venue: 'Ronald Lane',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: new Date('September 21, 2021'),
-        venue: 'Pier 3 East',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: new Date('October 15, 2021'),
-        venue: 'View Lounge',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: new Date('November 06, 2021'),
-        venue: 'Hyatt Agency',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: new Date('November 26, 2021'),
-        venue: 'Moscow Center',
-        location: 'San Francisco, CA'
-    },
-    {
-        date: new Date('December 15, 2021'),
-        venue: 'Press Club',
-        location: 'San Francisco, CA'
-    }
-];
 
 function generateShowDetail(showDetail, showsList) { 
     // create list elements tag
@@ -165,8 +148,6 @@ function generateShowsList(dataList) {
 const showsPage = new Shows(url);
 showsPage.fetchShows()
     .then(() => {
-        // const loadingMessage = document.querySelector('.shows__list--loading-message');
-        // console.log(loadingMessage);
-        // loadingMessage.remove();
-        generateShowsList(showsData);
+        loadingMessage.remove();
+        generateShowsList(showsPage.allShows);
     })
