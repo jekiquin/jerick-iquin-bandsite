@@ -47,11 +47,12 @@ class Comments {
     fetchComments() {
         const getConfig = {
             method: "GET",
-            url: `${this._endPoint}?api_key=${this._endPoint}`,
+            url: `${this._endPoint}?api_key=${this._apiKey}`,
         }
         return (
             axios(getConfig)
                 .then((res) => {
+                    console.log(`${this._endPoint}?api_key=${this._apiKey}`);
                     this._allComments = res.data;
             })
         )
@@ -60,7 +61,7 @@ class Comments {
     postComment(commentObj) {
         const postConfig = {
             method: "POST",
-            url:`${this._endPoint}?api_key=${this._endPoint}`,
+            url:`${this._endPoint}?api_key=${this._apiKey}`,
             header: {
                 'Content-Type': 'application/json'
             },
@@ -68,8 +69,8 @@ class Comments {
         }
         return (
             axios(postConfig)
-                .then((res) => {
-                    this._allComments.push(res.data);
+                .then(() => {
+                    return this.fetchComments();
                 })
                 .catch(err => {
                     console.log(err);
@@ -79,16 +80,12 @@ class Comments {
     addLike(id) {
         const putConfig = {
             method: "PUT",
-            url: `${this._endPoint}/${id}/like?api_key=${this._endPoint}`,
+            url: `${this._endPoint}/${id}/like?api_key=${this._apiKey}`,
         }
         return (
             axios(putConfig)
-                .then(res => {
-                    const indexToUpdate = this._allComments.findIndex(element => {
-                        return element.id === id;
-                    })
-                    this._allComments[indexToUpdate] = res.data;
-                    return this._allComments[indexToUpdate].likes;
+                .then(() => {
+                   return this.fetchComments();
                 })
         )
     }
@@ -96,15 +93,12 @@ class Comments {
     deleteComment(id) {
         const deleteConfig = {
             method: "DELETE",
-            url: `${this._endPoint}/${id}?api_key=${this._endPoint}`,
+            url: `${this._endPoint}/${id}?api_key=${this._apiKey}`,
         }
         return (
             axios(deleteConfig)
-                .then(res => {
-                    const indexToUpdate = this._allComments.findIndex(element => {
-                        return element.id === id;
-                    })
-                    this._allComments.splice(indexToUpdate, 1);
+                .then(() => {
+                    return this.fetchComments();
                 })
         )
     }
@@ -266,14 +260,14 @@ function generateTimeDiffMessage(postedTime) {
         minute: 1000*60,
     };
 
-    const timeNow = new Date();
-    const timeDiff = timeNow.getTime() - new Date(postedTime).getTime();
-
+    const timeNow = new Date().getTime();
+    const posted = new Date(postedTime).getTime();
+    const timeDiff = timeNow - posted;
     let timeMessage = 'Posted just now.';
     for (let dateKey in MILLISECONDS_CONVERTER) {
         const timeConvertFloor = Math.floor(timeDiff / MILLISECONDS_CONVERTER[dateKey]);
         const timeConvertRound = Math.round(timeDiff / MILLISECONDS_CONVERTER[dateKey]);
-        if (timeConvertFloor) {
+        if (timeConvertFloor > 0) {
             timeMessage = `Posted ${timeConvertRound} `;
             timeMessage += timeConvertRound > 1 ? `${dateKey}s ago.` : `${dateKey} ago.`;
             break;
@@ -299,10 +293,10 @@ function generateTimeDiff(commentObj, cardContainer){
 // input field blur event listener
 function likeEvent(likeButton, id) {
     likeButton.addEventListener('click', event => {
-        const counter = event.target.nextElementSibling
         bioPage.addLike(id)
-            .then((likesCount) => {
-                counter.innerText = likesCount;
+            .then(() => {
+            console.log(bioPage.allComments);
+            renderAllComments(bioPage.allComments);
             })
     })
 }
