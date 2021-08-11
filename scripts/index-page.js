@@ -4,7 +4,6 @@ import { createElement, capitalize } from './peripherals.js';
 // api information
 const endpoint = 'https://project-1-api.herokuapp.com/comments';
 const apiKey = 'ea5744a6-ad19-4c05-b800-9fe8ec7ba912';
-const url = `${endpoint}?api_key=${apiKey}`;
 
 const commentsSection = document.querySelector('.comments__limiting-container');
 const commentForm = document.querySelector('.comments__form');
@@ -31,9 +30,10 @@ createElement(
 )
 
 class Comments {
-    constructor(url) {
+    constructor(endpoint, apiKey) {
         this._allComments = [];
-        this._endPoint = url;
+        this._endPoint = endpoint;
+        this._apiKey = apiKey;
     }
 
     get allComments() {
@@ -47,7 +47,7 @@ class Comments {
     fetchComments() {
         const getConfig = {
             method: "GET",
-            url: this._endPoint,
+            url: `${this._endPoint}?api_key=${this._endPoint}`,
         }
         return (
             axios(getConfig)
@@ -60,7 +60,7 @@ class Comments {
     postComment(commentObj) {
         const postConfig = {
             method: "POST",
-            url: this._endPoint,
+            url:`${this._endPoint}?api_key=${this._endPoint}`,
             header: {
                 'Content-Type': 'application/json'
             },
@@ -68,13 +68,45 @@ class Comments {
         }
         return (
             axios(postConfig)
-                .then(() => {
-                    return this.fetchComments();
+                .then((res) => {
+                    this._allComments.push(res.data);
                 })
                 .catch(err => {
                     console.log(err);
                 })
         ) 
+    }
+    addLike(id) {
+        const putConfig = {
+            method: "PUT",
+            url: `${this._endPoint}/${id}/like?api_key=${this._endPoint}`,
+        }
+        return (
+            axios(putConfig)
+                .then(res => {
+                    const indexToUpdate = this._allComments.findIndex(element => {
+                        return element.id === id;
+                    })
+                    this._allComments[indexToUpdate] = res.data;
+                    return this._allComments[indexToUpdate].likes;
+                })
+        )
+    }
+
+    deleteComment(id) {
+        const deleteConfig = {
+            method: "DELETE",
+            url: `${this._endPoint}/${id}?api_key=${this._endPoint}`,
+        }
+        return (
+            axios(deleteConfig)
+                .then(res => {
+                    const indexToUpdate = this._allComments.findIndex(element => {
+                        return element.id === id;
+                    })
+                    this._allComments.splice(indexToUpdate, 1);
+                })
+        )
     }
 }
 
@@ -150,6 +182,79 @@ function generateCommentProfilePic(commentObj, cardContainer) {
 
 }
 
+function generateButtons(commentObj, cardContainer) {
+    const buttonsContainer = createElement(
+        'div',
+        cardContainer,
+        {
+            classList: ['comments__card-button-container']
+        }
+    )
+
+    const likeButton = createElement(
+        'img',
+        buttonsContainer,
+        {
+            classList: ['comments__card-button', 'comments__card-button--like'],
+            src: './assets/icons/icon-like.svg'
+        }
+    )
+
+    likeEvent(likeButton, commentObj.id);
+
+    createElement(
+        'p',
+        buttonsContainer,
+        {
+            classList: ['comments__card-counter'],
+            innerText: commentObj.likes
+        }
+    )
+
+    const deleteButton = createElement(
+        'img',
+        buttonsContainer,
+        {
+            classList: ['comments__card-button', 'comments__card-button--delete'],
+            src: './assets/icons/icon-delete.svg'
+        }
+    )
+
+    deleteEvent(deleteButton, commentObj.id);
+}
+
+function displayComment(commentObj) {
+    const cardContainer = createElement(
+        'article',
+        postContainer,
+        {
+            classList: ['comments__card']
+        }
+    );
+
+    generateCommentProfilePic(commentObj, cardContainer);
+    generateCommentCtx(commentObj, cardContainer);
+}
+
+function postAllComments(commentsList) {
+    commentsList.forEach(post => {
+        displayComment(post);
+    })
+}
+
+function renderAllComments(commentsList) {
+    postContainer.innerHTML = '';
+    postAllComments(commentsList);
+}
+
+function inputBlurEventHandler(eventTarget) {
+    if (eventTarget.value.trim() === '') {
+        eventTarget.classList.add('comments__form-input--error');
+    } else {
+        eventTarget.classList.remove('comments__form-input--error');
+    }
+}
+
 function generateTimeDiffMessage(postedTime) {
     const MILLISECONDS_CONVERTER = {
         year: 1000*60*60*24*30*12,
@@ -188,78 +293,27 @@ function generateTimeDiff(commentObj, cardContainer){
     )
 
 }
-
-function generateButtons(commentObj, cardContainer) {
-    const buttonsContainer = createElement(
-        'div',
-        cardContainer,
-        {
-            classList: ['comments__card-button-container']
-        }
-    )
-
-    const likeButton = createElement(
-        'img',
-        buttonsContainer,
-        {
-            classList: ['comments__card-button', 'comments__card-button--like'],
-            src: './assets/icons/icon-like.svg'
-        }
-    )
-
-    createElement(
-        'p',
-        buttonsContainer,
-        {
-            classList: ['comments__card-counter'],
-            innerText: commentObj.likes
-        }
-    )
-
-    const deleteButton = createElement(
-        'img',
-        buttonsContainer,
-        {
-            classList: ['comments__card-button', 'comments__card-button--delete'],
-            src: './assets/icons/icon-delete.svg'
-        }
-    )
-}
-
-function displayComment(commentObj) {
-    const cardContainer = createElement(
-        'article',
-        postContainer,
-        {
-            classList: ['comments__card']
-        }
-    );
-
-    generateCommentProfilePic(commentObj, cardContainer);
-    generateCommentCtx(commentObj, cardContainer);
-}
-
-function postAllComments(commentsList) {
-    commentsList.forEach(post => {
-        displayComment(post);
+/* ----- event listener ------ */
+// input field blur event listener
+function likeEvent(likeButton, id) {
+    likeButton.addEventListener('click', event => {
+        const counter = event.target.nextElementSibling
+        bioPage.addLike(id)
+            .then((likesCount) => {
+                counter.innerText = likesCount;
+            })
     })
 }
 
-function renderAllComments(commentsList) {
-    postContainer.innerHTML = '';
-    postAllComments(commentsList);
+function deleteEvent(deleteButton, id) {
+    deleteButton.addEventListener('click', event => {
+        bioPage.deleteComment(id)
+        .then(() => {
+            renderAllComments(bioPage.allComments);
+        }) 
+    })
 }
 
-function inputBlurEventHandler(eventTarget) {
-    if (eventTarget.value.trim() === '') {
-        eventTarget.classList.add('comments__form-input--error');
-    } else {
-        eventTarget.classList.remove('comments__form-input--error');
-    }
-}
-
-/* ----- event listener ------ */
-// input field blur event listener
 formInputs.forEach(formInput => {
     formInput.addEventListener('blur', (event) => {
         inputBlurEventHandler(event.target);
@@ -297,7 +351,7 @@ commentForm.addEventListener('submit', (event) => {
 })
 
 /* ----- Document on load ------ */
-const bioPage = new Comments(url);
+const bioPage = new Comments(endpoint, apiKey);
 
 bioPage.fetchComments()
     .then(() => {
