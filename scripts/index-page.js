@@ -1,5 +1,5 @@
 // import peripheral functions
-import { createElement, capitalize } from './peripherals.js';
+import { createElement, properCaseAll} from './peripherals.js';
 
 // api information
 const endpoint = 'https://project-1-api.herokuapp.com/comments';
@@ -318,7 +318,7 @@ formInputs.forEach(formInput => {
 commentForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
-    const inputName = event.target.name.value.trim();
+    const inputName = properCaseAll(event.target.name.value.trim());
     const inputComment = event.target.comment.value.trim();
 
     // first error handling. checking blank inputs

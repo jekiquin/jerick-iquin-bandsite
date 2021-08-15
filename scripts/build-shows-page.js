@@ -1,4 +1,4 @@
-import { createElement, capitalize } from './peripherals.js';
+import { createElement, properCase } from './peripherals.js';
 
 // api information
 const endpoint = 'https://project-1-api.herokuapp.com/showdates';
@@ -84,7 +84,7 @@ function generateShowDetail(showDetail, showsList) {
         if (detail === 'date') {
             detailAttribute.innerText = showDetail[detail].toDateString();
         } else {
-            detailAttribute.innerText = capitalize(showDetail[detail])
+            detailAttribute.innerText = properCase(showDetail[detail])
         }
 
         // create the details

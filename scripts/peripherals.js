@@ -26,26 +26,35 @@ export function createElement(element, parent='document', elementAttributes={}, 
     if (append) {
         parent.appendChild(elementObj);
     } else {
-        // if (parent.firstChild) {
-        //     parent.insertBefore(elementObj, parent.firstChild);
-        // } else {
-        //     parent.appendChild(elementObj);
-        // }
         parent.prepend(elementObj);
-        
     }
     
     return elementObj;
 };
 
 /*
-createElement:
+properCase:
 Description: Applies proper case to a word
 Parameters:
     - string: word to apply proper case to
 Return Value:
     - Proper case formatted version of the input word.
 */
-export function capitalize(string) {
+export function properCase(string) {
     return string[0].toUpperCase() + string.slice(1);
+}
+
+/*
+properCaseAll:
+Description: Applies proper case to each word
+Parameters:
+    - string: sentence to apply the proper case into
+Return Value:
+    - Proper case formatted version of the input words.
+*/
+export function properCaseAll(string) {
+    return string.split(' ').map(word => {
+        return properCase(word)
+    }).join(' ');
+    
 }
